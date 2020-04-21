@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>backBtnImage</key>
+	<string>backBtn</string>
+	<key>tabbar_1_s</key>
+	<string>1_62.png</string>
+	<key>tabbar_1</key>
+	<string>1_45.png</string>
+	<key>tabbar_2</key>
+	<string>1_47.png</string>
+	<key>tabbar_2_s</key>
+	<string>1_63.png</string>
+	<key>tabbar_3</key>
+	<string>1_50.png</string>
+	<key>tabbar_3_s</key>
+	<string>1_64.png</string>
+</dict>
+</plist>
