@@ -8,6 +8,7 @@
 
 #import "SHTHomeViewController.h"
 #import "SHTCollectionViewLayout.h"
+#import "SHTReleaseVc.h"
 #import "HomeViewControllerCollectionViewCell.h"
 @interface SHTHomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,strong)UILabel *theme;
@@ -66,7 +67,8 @@
 }
 -(void)k_publishAction:(UIButton *)sender
 {
-    
+    SHTReleaseVc *vc=[[SHTReleaseVc alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -82,9 +84,7 @@
     .topSpaceToView(self.view, 80*HEIGHT_LzgDevicePixlesHandle)
     .heightIs(40*HEIGHT_LzgDevicePixlesHandle);
     [_theme setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH_SHT-100*WIDTH_LzgDevicePixlesHandle];
-    
     //
-    
     _subtitle.sd_layout
     .topSpaceToView(_theme, 10*HEIGHT_LzgDevicePixlesHandle)
     .leftEqualToView(_theme)

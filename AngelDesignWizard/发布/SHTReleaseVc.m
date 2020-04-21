@@ -42,6 +42,7 @@ const static char *SHTReleaseVcImageKey="SHTReleaseVcImageKey";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor=UIColor.whiteColor;
     [self.view sd_addSubviews:@[_topView,_decorationBaseView,_releaseButton]];
     [self.decorationBaseView sd_addSubviews:@[_addImage,_inputInforMation]];
     [self k_setUpUi];
@@ -76,6 +77,7 @@ const static char *SHTReleaseVcImageKey="SHTReleaseVcImageKey";
 }
 +(void)initialize
 {
+    NSLog(@"here");
     UIImage *topImage=[UIImage imageNamed:@"1_74"];
     UIImage *btnImage=[UIImage imageNamed:@"1_121"];
     UIImage *okImage=[UIImage imageNamed:@"1_144"];

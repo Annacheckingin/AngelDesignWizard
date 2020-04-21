@@ -30,7 +30,10 @@
         _sloganText.userInteractionEnabled=NO;
         _author=[[UILabel alloc]init];
         _blockBtn=[[UIButton alloc]init];
+        [_blockBtn setImage:[UIImage imageNamed:@"1_100"] forState:UIControlStateNormal];
         _reportBtn=[[UIButton alloc]init];
+        [_reportBtn setImage:[UIImage imageNamed:@"1_98"] forState:UIControlStateNormal];
+        _reportBtn.imageView.contentMode=_blockBtn.imageView.contentMode=UIViewContentModeScaleAspectFit;
         _dateMonth=[[UILabel alloc]init];
         _dateDay=[[UILabel alloc]init];
         _score=[UILabel new];
@@ -56,7 +59,33 @@
     .rightSpaceToView(self.contentView, 20*WIDTH_LzgDevicePixlesHandle)
     .heightIs(35*HEIGHT_LzgDevicePixlesHandle);
     //
-    
+    //
+    _author.sd_layout
+    .leftSpaceToView(_glancePic, 5)
+    .topSpaceToView(_sloganText, 5)
+    .heightIs(20);
+    [_author setSingleLineAutoResizeWithMaxWidth:100];
+    //
+    _blockBtn.sd_layout
+    .rightEqualToView(_sloganText)
+    .topSpaceToView(_sloganText, 5)
+    .heightIs(20)
+    .widthEqualToHeight();
+    //
+    _reportBtn.sd_layout
+    .rightSpaceToView(_blockBtn, 5)
+    .widthRatioToView(_blockBtn, 1)
+    .heightEqualToWidth();
+    //
+    _score.sd_layout
+    .rightEqualToView(_blockBtn)
+    .topSpaceToView(_blockBtn, 5)
+    .widthIs(20)
+    .heightIs(20)
+    ;
+    //
+    //
+    [self setupAutoHeightWithBottomView:_viewFullSize bottomMargin:10];
     return self;
 }
 - (void)awakeFromNib {

@@ -25,6 +25,7 @@ static const NSString *SHTBackBtnImageNameKey=@"backBtnImage";
         _backButton=[[UIButton alloc]init];
         [_backButton addTarget:self action:@selector(k_back:) forControlEvents:UIControlEventTouchUpInside];
         UIImage *backBtnImage=[SHTBaseViewControllerWithBackBtn backButtonImage];
+        NSLog(@"imagedescription:%@",backBtnImage);;
         [_backButton setImage:backBtnImage forState:UIControlStateNormal];
         _backButton.imageView.contentMode=UIViewContentModeScaleAspectFit;
     }
@@ -58,10 +59,13 @@ static const NSString *SHTBackBtnImageNameKey=@"backBtnImage";
 }
 +(void)initialize
 {
+    NSLog(@"here1");
     SHTMainBundleReader *bundleRd=[SHTMainBundleReader shareInstance];
 //  UIImage *BackBtnImage=[UIImage imageNamed:[bundleRd SHTPlistPathWithName:IconImagesSettingName][@"backBtn"]];
     NSString *picName=[bundleRd SHTPlistPathWithName:IconImagesSettingName];
+    NSLog(@"picNameFile:%@",picName);
     NSDictionary *setting=[NSDictionary dictionaryWithContentsOfFile:picName];
+    NSLog(@"backImageDic%@",setting);
     [self configureTheBackBtnImage:[UIImage imageNamed:setting[SHTBackBtnImageNameKey]]];
 }
 /*

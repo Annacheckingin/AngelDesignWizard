@@ -43,6 +43,7 @@
 -(NSString *)SHTPlistPathWithName:(NSString *)name
 {
     NSString *fileToPlist=[[self k_bundle] pathForResource:name ofType:@"plist"];
+    NSLog(@"%s,%@,filePath:%@",sel_getName(_cmd),name,fileToPlist);
     return fileToPlist;
 }
 @end
