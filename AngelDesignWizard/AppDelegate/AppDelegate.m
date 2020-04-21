@@ -12,8 +12,9 @@
 #import "SHTLibraryViewController.h"
 #import "SHTMainBundleReader.h"
 #import "SHTTabBarController.h"
+#import "LzgDevicePixlesHandle.h"
 @interface AppDelegate ()<UITabBarControllerDelegate>
-
+@property(nonatomic,strong)LzgDevicePixlesHandle *k_screenHandler;
 @end
 
 @implementation AppDelegate
@@ -21,6 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    _k_screenHandler=[LzgDevicePixlesHandle shareInstance];
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     SHTHomeViewController *homevc=[[SHTHomeViewController alloc]init];
     SHTpersonViewController *personvc=[[SHTpersonViewController alloc]init];
@@ -39,7 +41,7 @@
         obj.tabBarItem.image=[UIImage imageNamed:dic[formatteNormal]];
     }];
     self.window.rootViewController=rootBarVc;
-//    
+//
     [self.window makeKeyAndVisible];
 //    UINavigationController *navc_home=[UINavigationController alloc]
     // Override point for customization after application launch.

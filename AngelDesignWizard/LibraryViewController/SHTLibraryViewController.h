@@ -11,7 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SHTLibraryViewController : SHTBaseViewController
-
+@property(nonatomic,readonly)UILabel *currenCategory;
+@property(nonatomic,readonly)UIButton *choseCategory;
+@property(nonatomic,readonly)UITableView *displayContent;
 @end
 
 NS_ASSUME_NONNULL_END

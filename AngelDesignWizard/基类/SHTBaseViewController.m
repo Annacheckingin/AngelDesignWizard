@@ -63,6 +63,10 @@ static k_judgePlace k_judgePlaceWithBool(bool logicPara)
         [self.view addSubview:obj];
     }];
 }
+-(void)uiTest
+{
+    
+}
 /*
 #pragma mark - Navigation
 

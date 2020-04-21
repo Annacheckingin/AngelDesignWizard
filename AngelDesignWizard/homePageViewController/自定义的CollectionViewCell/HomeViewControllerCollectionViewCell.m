@@ -40,7 +40,7 @@
         _authorPortrait.layer.cornerRadius=5;
         _authorPortrait.clipsToBounds=YES;
         //
-        
+        self.contentView.backgroundColor=UIColor.whiteColor;
     }
     [self.contentView addSubview:_k_baseOutLinView];
     _k_baseOutLinView.sd_layout

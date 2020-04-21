@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270249E9244EC1BD00CA68D6 /* SHTMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 270249E8244EC1BD00CA68D6 /* SHTMenuCell.m */; };
+		270249ED244ECDDB00CA68D6 /* SHTTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 270249EC244ECDDB00CA68D6 /* SHTTableViewCell.m */; };
 		2773E1242446CC27008EEB3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2773E1232446CC27008EEB3F /* AppDelegate.m */; };
 		2773E12F2446CC2B008EEB3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2773E12E2446CC2B008EEB3F /* Assets.xcassets */; };
 		2773E1322446CC2B008EEB3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2773E1302446CC2B008EEB3F /* LaunchScreen.storyboard */; };
@@ -57,6 +59,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		270249E7244EC1BD00CA68D6 /* SHTMenuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHTMenuCell.h; sourceTree = "<group>"; };
+		270249E8244EC1BD00CA68D6 /* SHTMenuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHTMenuCell.m; sourceTree = "<group>"; };
+		270249EB244ECDDB00CA68D6 /* SHTTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHTTableViewCell.h; sourceTree = "<group>"; };
+		270249EC244ECDDB00CA68D6 /* SHTTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHTTableViewCell.m; sourceTree = "<group>"; };
 		2773E11F2446CC27008EEB3F /* AngelDesignWizard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AngelDesignWizard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2773E1222446CC27008EEB3F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2773E1232446CC27008EEB3F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -165,6 +171,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		270249E6244EC19A00CA68D6 /* 自定义cell */ = {
+			isa = PBXGroup;
+			children = (
+				270249E7244EC1BD00CA68D6 /* SHTMenuCell.h */,
+				270249E8244EC1BD00CA68D6 /* SHTMenuCell.m */,
+			);
+			path = "自定义cell";
+			sourceTree = "<group>";
+		};
+		270249EA244ECDBB00CA68D6 /* contentcell */ = {
+			isa = PBXGroup;
+			children = (
+				270249EB244ECDDB00CA68D6 /* SHTTableViewCell.h */,
+				270249EC244ECDDB00CA68D6 /* SHTTableViewCell.m */,
+			);
+			path = contentcell;
+			sourceTree = "<group>";
+		};
 		2773E1162446CC27008EEB3F = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +208,7 @@
 		2773E1212446CC27008EEB3F /* AngelDesignWizard */ = {
 			isa = PBXGroup;
 			children = (
+				270249E6244EC19A00CA68D6 /* 自定义cell */,
 				279924922446FC1700105140 /* 发布 */,
 				2799247E2446F1FA00105140 /* 设备像素处理 */,
 				279924222446EDCF00105140 /* 第三方 */,
@@ -238,6 +263,7 @@
 		279924112446DDF300105140 /* LibraryViewController */ = {
 			isa = PBXGroup;
 			children = (
+				270249EA244ECDBB00CA68D6 /* contentcell */,
 				279924882446F4D600105140 /* SHTLibraryViewController.h */,
 				279924892446F4D600105140 /* SHTLibraryViewController.m */,
 			);
@@ -510,6 +536,7 @@
 				279924682446EDE000105140 /* UIView+SDAutoLayout.m in Sources */,
 				2773E1242446CC27008EEB3F /* AppDelegate.m in Sources */,
 				279924662446EDE000105140 /* AFNetworkReachabilityManager.m in Sources */,
+				270249E9244EC1BD00CA68D6 /* SHTMenuCell.m in Sources */,
 				279924712446EDE000105140 /* YYSpriteSheetImage.m in Sources */,
 				2799241F2446E12800105140 /* SHTMainBundleReader.m in Sources */,
 				279924162446DF0D00105140 /* SHTBaseViewControllerWithBackBtn.m in Sources */,
@@ -548,6 +575,7 @@
 				279924652446EDE000105140 /* AFURLRequestSerialization.m in Sources */,
 				27C652C324483ABE0059BF05 /* HomeViewControllerCollectionViewCell.m in Sources */,
 				279924732446EDE000105140 /* YYImageCoder.m in Sources */,
+				270249ED244ECDDB00CA68D6 /* SHTTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

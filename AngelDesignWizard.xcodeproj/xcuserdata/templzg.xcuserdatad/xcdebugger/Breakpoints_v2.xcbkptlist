@@ -18,16 +18,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4169D185-DF04-4FEF-A92E-C7EB3A336AA3"
+            uuid = "4AE43365-C779-418F-BBC1-4837DE64C37D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AngelDesignWizard/homePageViewController/SHTHomeViewController.m"
+            filePath = "AngelDesignWizard/&#x8bbe;&#x5907;&#x50cf;&#x7d20;&#x5904;&#x7406;/LzgDevicePixlesHandle.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "-collectionView:numberOfItemsInSection:"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "-p_findScreenInfor"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

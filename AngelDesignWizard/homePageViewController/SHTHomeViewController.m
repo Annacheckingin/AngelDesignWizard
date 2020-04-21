@@ -30,26 +30,22 @@
         _theme=[[UILabel alloc]init];
         _subtitle=[[UILabel alloc]init];
         SHTCollectionViewLayout *layout=[[SHTCollectionViewLayout alloc]init];
-        layout.theItemSize=CGSizeMake(300, 300);
-        layout.sectionEdgeinsect=UIEdgeInsetsMake(10, 10, 10, 10);
+        layout.theItemSize=CGSizeMake(SCREENWIDTH_SHT-40, SCREENWIDTH_SHT-40+90);
+        layout.sectionEdgeinsect=UIEdgeInsetsMake(10, 20, 10, 20);
         layout.theItemGap=10;
+        layout.scrollDirection=SHTScrollDirectionVertical;
         _gridDisplay=[[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
        _publishButton=[[UIButton alloc]init];
         [_gridDisplay registerClass:[HomeViewControllerCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([HomeViewControllerCollectionViewCell class])];
-//        _gridDisplay.showsVerticalScrollIndicator=NO;
-//        _gridDisplay.showsHorizontalScrollIndicator=NO;
+        _gridDisplay.showsVerticalScrollIndicator=NO;
+        _gridDisplay.showsHorizontalScrollIndicator=NO;
         _collectionViewData=[NSMutableArray array];
 #pragma mark 绑定数据源和代理
-        
-        
         //
         //
-        
         _gridDisplay.delegate=self;
         _gridDisplay.dataSource=self;
         //
-        
-        
 #pragma mark UI设计
         //
         //
@@ -63,6 +59,8 @@
         _subtitle.font=[UIFont fontWithName:@"CourierNewPSMT" size:12];
         _subtitle.textColor=UIColor.lightGrayColor;
         _gridDisplay.backgroundColor=[UIColor colorWithRed:245/255.0 green:247/255.0 blue:250/255.0 alpha:1];
+//        _gridDisplay.backgroundColor=UIColor.greenColor;
+     
     }
     return self;
 }
@@ -83,7 +81,7 @@
     .leftSpaceToView(self.view, 10*WIDTH_LzgDevicePixlesHandle)
     .topSpaceToView(self.view, 80*HEIGHT_LzgDevicePixlesHandle)
     .heightIs(40*HEIGHT_LzgDevicePixlesHandle);
-    [_theme setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH_SHT-130*WIDTH_LzgDevicePixlesHandle];
+    [_theme setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH_SHT-100*WIDTH_LzgDevicePixlesHandle];
     
     //
     
@@ -112,27 +110,16 @@
 {
     [super viewWillAppear:animated];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 #pragma mark 提供UICollectionViewCell
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-
     return 2;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([HomeViewControllerCollectionViewCell class]) forIndexPath:indexPath];
-    
-    NSLog(@"%s",sel_getName(_cmd));
-    cell.backgroundColor=UIColor.redColor;
+//    cell.contentView.backgroundColor=UIColor.redColor;
     return cell;
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView

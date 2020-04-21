@@ -15,31 +15,44 @@ const NSString *LzgDevicePixlesHandleIphone8plus=@"iphone8plus";
 const NSString *LzgDevicePixlesHandleIphone11=@"iphone11";
 const NSString *LzgDevicePixlesHandleIphone11Pro=@"iphone11Pro";
 const NSString *LzgDevicePixlesHandleIphone11ProMax=@"iphone11ProMax";
-float WIDTH_LzgDevicePixlesHandle=1;
-float HEIGHT_LzgDevicePixlesHandle=1;
-float SCREENWIDTH_SHT;
-float SCREENHEIGHT_SHT;
+ float WIDTH_LzgDevicePixlesHandle=1;
+ float HEIGHT_LzgDevicePixlesHandle=1;
+ float SCREENWIDTH_SHT;
+ float SCREENHEIGHT_SHT;
 @implementation LzgDevicePixlesHandle
 -(NSString *)deviceName
 {
+//    NSLog(@"deviceName;%ld",[self p_findScreenInfor]);
+//    NSLog(@"%@",k_LzgDevicePixlesHandleHardInformation);
     return k_LzgDevicePixlesHandleHardInformation[[self p_findScreenInfor]];
 }
 -(NSInteger)p_findScreenInfor
 {
-   NSDictionary *curentDeviceinfor=@{
-        LzgDevicePixlesHandleSCREENWIDTHKEY:[NSNumber numberWithFloat:WIDTH_LzgDevicePixlesHandle],
-        LzgDevicePixlesHandleSCREENHEIGHTKEY:[NSNumber numberWithFloat:HEIGHT_LzgDevicePixlesHandle]
-    };
+//   NSDictionary *curentDeviceinfor=@{
+//        LzgDevicePixlesHandleSCREENWIDTHKEY:[NSNumber numberWithFloat:SCREENWIDTH_SHT],
+//        LzgDevicePixlesHandleSCREENHEIGHTKEY:[NSNumber numberWithFloat:SCREENHEIGHT_SHT]
+//    };
    __block NSInteger indexInofr;
+//    NSLog(@"here:%@",k_LzgDevicePixlesHandleHardNumericInfor);
     [k_LzgDevicePixlesHandleHardNumericInfor enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop)
     {
         NSDictionary *dic=(NSDictionary *)obj;
-        if ([dic isEqualToDictionary:curentDeviceinfor])
+//
+        NSNumber *width=dic[LzgDevicePixlesHandleSCREENWIDTHKEY];
+        NSNumber *height=dic[LzgDevicePixlesHandleSCREENHEIGHTKEY];
+//        NSNumber *width_current=curentDeviceinfor[LzgDevicePixlesHandleSCREENWIDTHKEY];
+//        NSNumber *height_current=curentDeviceinfor[LzgDevicePixlesHandleSCREENHEIGHTKEY];
+//        CGFloat width_f=width.floatValue;
+//        CGFloat height_f=height.floatValue;
+//        CGFloat width_c=width_current.floatValue;
+//        CGFloat height_c=height_current.floatValue;
+        if (width.floatValue==[UIScreen mainScreen].bounds.size.width&&height.floatValue==[UIScreen mainScreen].bounds.size.height)
         {
             indexInofr=idx;
             *stop=YES;
         }
     }];
+//    NSLog(@"indexinfor:%d",indexInofr);
     return indexInofr;
 }
 -(CGFloat)heightWithDeviceName:(NSString *)deviceName
@@ -116,6 +129,10 @@ k_LzgDevicePixlesHandleHardInformation=@[@"iphone8",@"iphone8plus",@"iphone11",@
 +(void)initialize
 {
 
+    SCREENWIDTH_SHT=[[self shareInstance] widthWithDevice:[[self shareInstance] deviceName]];
+       
+    SCREENHEIGHT_SHT=[[self shareInstance] heightWithDeviceName:[[self shareInstance] deviceName]];
+    
     if ([[[self shareInstance] deviceName] isEqualToString:LzgDevicePixlesHandleIphone8])
     {
         WIDTH_LzgDevicePixlesHandle=1;
@@ -143,8 +160,32 @@ k_LzgDevicePixlesHandleHardInformation=@[@"iphone8",@"iphone8plus",@"iphone11",@
         WIDTH_LzgDevicePixlesHandle=1.1;
         HEIGHT_LzgDevicePixlesHandle=1.3;
     }
-    
-    SCREENWIDTH_SHT=[[self shareInstance] widthWithDevice:[[self shareInstance] deviceName]];
-    SCREENHEIGHT_SHT=[[self shareInstance] heightWithDeviceName:[[self shareInstance] deviceName]];
+   k_LzgDevicePixlesHandleHardInformation=@[@"iphone8",@"iphone8plus",@"iphone11",@"iphone11Pro",@"iphone11ProMax"];
+    k_LzgDevicePixlesHandleHardNumericInfor=@[
+
+         @{LzgDevicePixlesHandleSCREENWIDTHKEY:@375.0,
+         LzgDevicePixlesHandleSCREENHEIGHTKEY:@667.0},
+        @{LzgDevicePixlesHandleSCREENWIDTHKEY:@414,
+          LzgDevicePixlesHandleSCREENHEIGHTKEY:@736
+        },
+        @{
+            LzgDevicePixlesHandleSCREENWIDTHKEY:@414,
+            LzgDevicePixlesHandleSCREENHEIGHTKEY:@896
+        },
+        @{
+            LzgDevicePixlesHandleSCREENWIDTHKEY:@375
+            ,
+            LzgDevicePixlesHandleSCREENHEIGHTKEY:@812
+        },
+        @{
+            LzgDevicePixlesHandleSCREENWIDTHKEY:@414
+            ,LzgDevicePixlesHandleSCREENHEIGHTKEY:@896
+        }
+    ];
+//    NSLog(@"%@",k_LzgDevicePixlesHandleHardInformation);
+//    NSLog(@"deviceName:%@",[[self shareInstance] deviceName]);
+//
+//    NSLog(@"initialize:%lf",SCREENWIDTH_SHT);
+//    NSLog(@"compared;%lf",[UIScreen mainScreen].bounds.size.width);
 }
 @end
