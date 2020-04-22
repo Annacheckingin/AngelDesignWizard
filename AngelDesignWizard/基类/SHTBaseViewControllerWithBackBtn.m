@@ -25,11 +25,16 @@ static const NSString *SHTBackBtnImageNameKey=@"backBtnImage";
         _backButton=[[UIButton alloc]init];
         [_backButton addTarget:self action:@selector(k_back:) forControlEvents:UIControlEventTouchUpInside];
         UIImage *backBtnImage=[SHTBaseViewControllerWithBackBtn backButtonImage];
-        NSLog(@"imagedescription:%@",backBtnImage);;
+//        NSLog(@"imagedescription:%@",backBtnImage);;
         [_backButton setImage:backBtnImage forState:UIControlStateNormal];
         _backButton.imageView.contentMode=UIViewContentModeScaleAspectFit;
+//        _backButton.backgroundColor=[UIColor colorWithRed:97/255.0 green:117/255.0 blue:174/255.0 alpha:1];
     }
     return self;
+}
+-(void)backbuttonMoveToPeak
+{
+    [self.view bringSubviewToFront:_backButton];
 }
 -(void)k_back:(UIButton *)sender
 {
@@ -51,21 +56,20 @@ static const NSString *SHTBackBtnImageNameKey=@"backBtnImage";
     [super viewDidLoad];
     [self.view addSubview:_backButton];
     _backButton.sd_layout
-    .leftSpaceToView(self.view,20*WIDTH_LzgDevicePixlesHandle)
-    .topSpaceToView(self.view, 20*HEIGHT_LzgDevicePixlesHandle)
-    .widthIs(100*WIDTH_LzgDevicePixlesHandle)
+    .leftSpaceToView(self.view,10*WIDTH_LzgDevicePixlesHandle)
+    .topSpaceToView(self.view, 40*HEIGHT_LzgDevicePixlesHandle)
+    .widthIs(50*WIDTH_LzgDevicePixlesHandle)
     .heightIs(20*HEIGHT_LzgDevicePixlesHandle);
     // Do any additional setup after loading the view.
 }
 +(void)initialize
 {
-    NSLog(@"here1");
+    
     SHTMainBundleReader *bundleRd=[SHTMainBundleReader shareInstance];
-//  UIImage *BackBtnImage=[UIImage imageNamed:[bundleRd SHTPlistPathWithName:IconImagesSettingName][@"backBtn"]];
     NSString *picName=[bundleRd SHTPlistPathWithName:IconImagesSettingName];
-    NSLog(@"picNameFile:%@",picName);
+
     NSDictionary *setting=[NSDictionary dictionaryWithContentsOfFile:picName];
-    NSLog(@"backImageDic%@",setting);
+
     [self configureTheBackBtnImage:[UIImage imageNamed:setting[SHTBackBtnImageNameKey]]];
 }
 /*

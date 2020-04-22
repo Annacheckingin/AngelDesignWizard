@@ -19,6 +19,8 @@ typedef NS_OPTIONS(NSInteger, SHTScrollDirection)
 @property(nonatomic,assign)CGFloat theLineGap;
 @property(nonatomic,assign)CGFloat theItemGap;
 @property(nonatomic,assign)SHTScrollDirection scrollDirection;
+@property(nonatomic,assign)CGFloat cellOffset;
+@property(nonatomic,assign)CGFloat cellScale;
 @end
 
 NS_ASSUME_NONNULL_END

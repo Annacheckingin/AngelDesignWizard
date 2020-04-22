@@ -23,14 +23,16 @@ const static char *SHTReleaseVcImageKey="SHTReleaseVcImageKey";
     if (self=[super init])
     {
         _topView=[[UIImageView alloc]init];
+        _topView.userInteractionEnabled=YES;
         _decorationBaseView=[[UIImageView alloc]init];
+        _decorationBaseView.userInteractionEnabled=YES;
          _inputInforMation=[[UITextView alloc]init];
         _addImage=[[UIButton alloc]init];
          _releaseButton=[[UIButton alloc]init];
         //
         _topView.image=[SHTReleaseVc theImages][0];
         _topView.userInteractionEnabled=YES;
-        _topView.contentMode=UIViewContentModeScaleAspectFit;
+        _topView.contentMode=UIViewContentModeScaleAspectFill;
         _decorationBaseView.image=[SHTReleaseVc theImages][3];
         _decorationBaseView.contentMode=UIViewContentModeScaleAspectFill;
         _decorationBaseView.userInteractionEnabled=YES;
@@ -46,6 +48,7 @@ const static char *SHTReleaseVcImageKey="SHTReleaseVcImageKey";
     [self.view sd_addSubviews:@[_topView,_decorationBaseView,_releaseButton]];
     [self.decorationBaseView sd_addSubviews:@[_addImage,_inputInforMation]];
     [self k_setUpUi];
+    [self backbuttonMoveToPeak];
     
 }
 -(void)k_setUpUi
@@ -77,7 +80,6 @@ const static char *SHTReleaseVcImageKey="SHTReleaseVcImageKey";
 }
 +(void)initialize
 {
-    NSLog(@"here");
     UIImage *topImage=[UIImage imageNamed:@"1_74"];
     UIImage *btnImage=[UIImage imageNamed:@"1_121"];
     UIImage *okImage=[UIImage imageNamed:@"1_144"];

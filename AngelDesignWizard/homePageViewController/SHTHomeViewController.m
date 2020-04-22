@@ -32,8 +32,10 @@
         _subtitle=[[UILabel alloc]init];
         SHTCollectionViewLayout *layout=[[SHTCollectionViewLayout alloc]init];
         layout.theItemSize=CGSizeMake(SCREENWIDTH_SHT-40, SCREENWIDTH_SHT-40+90);
-        layout.sectionEdgeinsect=UIEdgeInsetsMake(10, 20, 10, 20);
+        layout.sectionEdgeinsect=UIEdgeInsetsMake(20, 20, 10, 20);
         layout.theItemGap=10;
+        layout.cellOffset=30;
+        layout.cellScale=0.1;
         layout.scrollDirection=SHTScrollDirectionVertical;
         _gridDisplay=[[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
        _publishButton=[[UIButton alloc]init];
@@ -114,12 +116,25 @@
 #pragma mark 提供UICollectionViewCell
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 2;
+    return 4;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([HomeViewControllerCollectionViewCell class]) forIndexPath:indexPath];
 //    cell.contentView.backgroundColor=UIColor.redColor;
+    
+    switch (indexPath.row)
+    {
+        case 0:
+            cell.contentView.backgroundColor=UIColor.redColor;
+            break;
+        case 1:
+            cell.contentView.backgroundColor=UIColor.greenColor;
+            break;
+        default:
+            cell.contentView.backgroundColor=UIColor.blueColor;
+            break;
+    }
     return cell;
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView

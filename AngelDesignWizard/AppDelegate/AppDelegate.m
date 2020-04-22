@@ -34,7 +34,7 @@
     rootBarVc.delegate=self;
     rootBarVc.viewControllers=@[navi_home,navi_library,navi_personvc];
     [rootBarVc.viewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSLog(@"%s",sel_getName(_cmd));
+//        NSLog(@"%s",sel_getName(_cmd));
         NSDictionary *dic=[NSDictionary dictionaryWithContentsOfFile:[[SHTMainBundleReader shareInstance] SHTPlistPathWithName:@"IconImagesSetting"]];
         NSString *formatteNormal=[NSString stringWithFormat:@"tabbar_%ld",idx+1];
          NSString *formatteSelected=[NSString stringWithFormat:@"tabbar_%ld_s",idx+1];

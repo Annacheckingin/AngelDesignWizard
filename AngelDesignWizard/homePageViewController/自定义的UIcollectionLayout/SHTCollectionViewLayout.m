@@ -16,17 +16,27 @@
 @property(nonatomic,assign)CGFloat currentY;
 @end
 @implementation SHTCollectionViewLayout
+-(void)setCellOffset:(CGFloat)cellOffset
+{
+    if (cellOffset<0)
+    {
+        cellOffset+=2*(-cellOffset);
+    }
+    _cellOffset=cellOffset;
+}
 -(instancetype)init
 {
     if (self=[super init])
     {
         _attributes=[NSMutableArray array];
+        
     }
     return self;
 }
 -(void)prepareLayout
 {
     [super prepareLayout];
+    NSLog(@"-------------%s--------------",sel_getName(_cmd));
     NSInteger sectionCount=[self.collectionView numberOfItemsInSection:0];
     _currentX=_sectionEdgeinsect.left;
     _currentY=_sectionEdgeinsect.top;
@@ -36,9 +46,30 @@
         UICollectionViewLayoutAttributes *at=[self layoutAttributesForItemAtIndexPath:indexPath];
         [_attributes addObject:at];
     }
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSLog(@"ok");
+        for (UICollectionViewLayoutAttributes *obj in _attributes)
+        {
+                   CGPoint cellCenter=obj.center;
+                   CGPoint theLeftTopCorner=self.collectionView.bounds.origin;
+                   CGFloat theDistantOfCenter=fabs(cellCenter.y-theLeftTopCorner.y);
+                   CGFloat scaleAdjust=1/(200/theDistantOfCenter);
+                   if (scaleAdjust>1)
+                   {
+                       scaleAdjust=1;
+                   }
+                   CGFloat  theScale=(1-0.1*obj.indexPath.row)*scaleAdjust;
+                   obj.transform=CGAffineTransformMakeScale(theScale, theScale);
+        }
+    });
+    
 }
 -(CGSize)collectionViewContentSize
 {
+    
+    CGSize theSize=CGSizeMake(self.collectionView.width, self.collectionView.height*1.1);
+    return theSize;
     if (self.scrollDirection==SHTDirectionHorizental)
     {
 //        NSInteger itemCount=[self.collectionView numberOfItemsInSection:0];
@@ -57,11 +88,14 @@
         CGSize contentSize=self.collectionView.frame.size;
         return contentSize;
     }
-    return CGSizeZero;
+   CGSize contentSize=self.collectionView.frame.size;
+    
+    return contentSize;
 }
 
 - (nullable NSArray<__kindof UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
 {
+
     
     return _attributes;
 }
@@ -84,9 +118,20 @@
     }
     else
     {
-        _currentY+=theFrame.size.height+_theItemGap;
+        CGFloat thedi=40;
+        _currentY+=thedi;
+        cellAt.zIndex-=30*indexPath.row;
     }
+   
     return cellAt;
 }
-
+//-(CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
+//{
+//
+//
+//
+//
+//
+//
+//}
 @end

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SHTBaseViewControllerWithBackBtn : UIViewController
 +(void)configureTheBackBtnImage:(UIImage *)image;
 -(void)setExceptionBackImage:(UIImage *)image;
+-(void)backbuttonMoveToPeak;
 @property(nonatomic,readonly)UIButton *backButton;
 @end
 

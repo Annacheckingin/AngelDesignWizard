@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		270249E9244EC1BD00CA68D6 /* SHTMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 270249E8244EC1BD00CA68D6 /* SHTMenuCell.m */; };
 		270249ED244ECDDB00CA68D6 /* SHTTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 270249EC244ECDDB00CA68D6 /* SHTTableViewCell.m */; };
+		270249EF244FDCAE00CA68D6 /* backbtn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 270249EE244FDCAE00CA68D6 /* backbtn.jpg */; };
+		270249F1244FDDD600CA68D6 /* backbtn1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270249F0244FDDD600CA68D6 /* backbtn1.png */; };
 		2773E1242446CC27008EEB3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2773E1232446CC27008EEB3F /* AppDelegate.m */; };
 		2773E12F2446CC2B008EEB3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2773E12E2446CC2B008EEB3F /* Assets.xcassets */; };
 		2773E1322446CC2B008EEB3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2773E1302446CC2B008EEB3F /* LaunchScreen.storyboard */; };
 		2773E1352446CC2B008EEB3F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2773E1342446CC2B008EEB3F /* main.m */; };
 		2773E13E2446D795008EEB3F /* 启动.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2773E13D2446D795008EEB3F /* 启动.jpg */; };
 		279924162446DF0D00105140 /* SHTBaseViewControllerWithBackBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 279924152446DF0D00105140 /* SHTBaseViewControllerWithBackBtn.m */; };
-		279924182446E08600105140 /* backBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 279924172446E08600105140 /* backBtn.png */; };
 		2799241B2446E0C700105140 /* IconImagesSetting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2799241A2446E0C700105140 /* IconImagesSetting.plist */; };
 		2799241F2446E12800105140 /* SHTMainBundleReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2799241E2446E12800105140 /* SHTMainBundleReader.m */; };
 		279924622446EDE000105140 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 279924282446EDDF00105140 /* AFURLResponseSerialization.m */; };
@@ -63,6 +64,8 @@
 		270249E8244EC1BD00CA68D6 /* SHTMenuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHTMenuCell.m; sourceTree = "<group>"; };
 		270249EB244ECDDB00CA68D6 /* SHTTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHTTableViewCell.h; sourceTree = "<group>"; };
 		270249EC244ECDDB00CA68D6 /* SHTTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHTTableViewCell.m; sourceTree = "<group>"; };
+		270249EE244FDCAE00CA68D6 /* backbtn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backbtn.jpg; sourceTree = "<group>"; };
+		270249F0244FDDD600CA68D6 /* backbtn1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backbtn1.png; sourceTree = "<group>"; };
 		2773E11F2446CC27008EEB3F /* AngelDesignWizard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AngelDesignWizard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2773E1222446CC27008EEB3F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2773E1232446CC27008EEB3F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -73,7 +76,6 @@
 		2773E13D2446D795008EEB3F /* 启动.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动.jpg"; sourceTree = "<group>"; };
 		279924142446DF0D00105140 /* SHTBaseViewControllerWithBackBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHTBaseViewControllerWithBackBtn.h; sourceTree = "<group>"; };
 		279924152446DF0D00105140 /* SHTBaseViewControllerWithBackBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHTBaseViewControllerWithBackBtn.m; sourceTree = "<group>"; };
-		279924172446E08600105140 /* backBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backBtn.png; sourceTree = "<group>"; };
 		2799241A2446E0C700105140 /* IconImagesSetting.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = IconImagesSetting.plist; sourceTree = "<group>"; };
 		2799241D2446E12800105140 /* SHTMainBundleReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHTMainBundleReader.h; sourceTree = "<group>"; };
 		2799241E2446E12800105140 /* SHTMainBundleReader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHTMainBundleReader.m; sourceTree = "<group>"; };
@@ -189,6 +191,13 @@
 			path = contentcell;
 			sourceTree = "<group>";
 		};
+		270249F2245017E900CA68D6 /* C++队列 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "C++队列";
+			sourceTree = "<group>";
+		};
 		2773E1162446CC27008EEB3F = {
 			isa = PBXGroup;
 			children = (
@@ -243,7 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				2773E13D2446D795008EEB3F /* 启动.jpg */,
-				279924172446E08600105140 /* backBtn.png */,
+				270249EE244FDCAE00CA68D6 /* backbtn.jpg */,
+				270249F0244FDDD600CA68D6 /* backbtn1.png */,
 			);
 			path = "图片资源";
 			sourceTree = "<group>";
@@ -251,6 +261,7 @@
 		279924102446DDE500105140 /* homePageViewController */ = {
 			isa = PBXGroup;
 			children = (
+				270249F2245017E900CA68D6 /* C++队列 */,
 				279924932446FC3400105140 /* 详情页面 */,
 				27C652C024483A910059BF05 /* 自定义的CollectionViewCell */,
 				279924972446FE3900105140 /* 自定义的UIcollectionLayout */,
@@ -517,10 +528,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				270249F1244FDDD600CA68D6 /* backbtn1.png in Resources */,
 				2799241B2446E0C700105140 /* IconImagesSetting.plist in Resources */,
+				270249EF244FDCAE00CA68D6 /* backbtn.jpg in Resources */,
 				2773E1322446CC2B008EEB3F /* LaunchScreen.storyboard in Resources */,
 				2773E12F2446CC2B008EEB3F /* Assets.xcassets in Resources */,
-				279924182446E08600105140 /* backBtn.png in Resources */,
 				2773E13E2446D795008EEB3F /* 启动.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
