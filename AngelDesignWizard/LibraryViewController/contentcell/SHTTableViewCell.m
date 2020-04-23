@@ -8,6 +8,7 @@
 
 #import "SHTTableViewCell.h"
 #import "SHTLabel.h"
+#include <stdlib.h>
 #define SHTRoutingMask 01
 #define SHTRoutingYES 017
 #define SHTRoutingNO 00
@@ -41,6 +42,8 @@ typedef struct SHTTableViewCellSelectorRouting
     _sloganText.font=[UIFont fontWithName:@"AmericanTypewriter" size:11];
     _sloganText.numberOfLines=0;
     _sloganText.lineBreakMode=NSLineBreakByTruncatingTail;
+    NSLog(@"%d",sizeof(_actionRouting));
+    NSLog(@"sizeof_actionRouting):%o",_actionRouting);
 }
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -148,22 +151,24 @@ typedef struct SHTTableViewCellSelectorRouting
 -(void)setDelegate:(id<SHTTableViewCellButtonActionDelegate>)delegate
 {
     _delegate=delegate;
-    
-    
-    if ((self.actionRouting.routingForProtocol&SHTRoutingMask))
+    int8_t *add=&(_actionRouting);
+    if ((*add)&SHTRoutingMask)
     {
-        NSLog(@"didn't");
-        if (self.actionRouting.routingForblock&SHTRoutingMask<<2)
+        if ((*add)&SHTRoutingMask<<2)
         {
+           
             [_blockBtn addTarget:_delegate action:@selector(SHTTableViewCellButtonActionDelegateBlockAction:) forControlEvents:UIControlEventTouchUpInside];
         }
         
-        if (self.actionRouting.routingforReport&SHTRoutingMask<<3)
+        if ((*add)&SHTRoutingMask<<3)
         {
+            
             [_reportBtn addTarget:_delegate action:@selector(SHTTableViewCellButtonActionDelegateReportAction:) forControlEvents:UIControlEventTouchUpInside];
         }
         
-        if (self.actionRouting.routingForViewFull&SHTRoutingMask<<1) {
+        if ((*add)&SHTRoutingMask<<1)
+        {
+           
             [_viewFullSize addTarget:_delegate action:@selector(SHTTableViewCellButtonActionDelegateViewFullAction:) forControlEvents:UIControlEventTouchUpInside];
         }
         return;
@@ -172,25 +177,33 @@ typedef struct SHTTableViewCellSelectorRouting
     
     if([_delegate conformsToProtocol:@protocol(SHTTableViewCellButtonActionDelegate)])
     {
-        SHTTableViewCellSelectorRouting *add=&(_actionRouting);
-        (*add).routingForProtocol=SHTRoutingMask;
+        NSLog(@"did");
+        int8_t *add=&(_actionRouting);
+        *add=(*add)|SHTRoutingMask;
+       
         if ([_delegate respondsToSelector:@selector(SHTTableViewCellButtonActionDelegateBlockAction:)])
         {
             [_blockBtn addTarget:_delegate action:@selector(SHTTableViewCellButtonActionDelegateBlockAction:) forControlEvents:UIControlEventTouchUpInside];
-            add->routingForblock=(SHTRoutingMask<<2);
+            *add=(*add)|(SHTRoutingMask<<2);
+          
         }
         
         if ([_delegate respondsToSelector:@selector(SHTTableViewCellButtonActionDelegateReportAction:)])
         {
             [_reportBtn addTarget:_delegate action:@selector(SHTTableViewCellButtonActionDelegateReportAction:) forControlEvents:UIControlEventTouchUpInside];
-            add->routingforReport=(SHTRoutingMask<<3);
+            *add=(*add)|(SHTRoutingMask<<3);
+        
         }
         
         if ([_delegate respondsToSelector:@selector(SHTTableViewCellButtonActionDelegateViewFullAction:)])
         {
             [_viewFullSize addTarget:_delegate action:@selector(SHTTableViewCellButtonActionDelegateViewFullAction:) forControlEvents:UIControlEventTouchUpInside];
-            add->routingForViewFull=(SHTRoutingMask<<1);
+            *add=(*add)|(SHTRoutingMask<<1);
+           
         }
+//        int8_t *th=(int8_t *)(add);
+//        NSLog(@"%ld",sizeof(add));
+//        NSLog(@"%d",th);
     }
     [self setDelegate:_delegate];
     
