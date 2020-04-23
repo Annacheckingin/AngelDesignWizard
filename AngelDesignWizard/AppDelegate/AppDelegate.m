@@ -13,8 +13,10 @@
 #import "SHTMainBundleReader.h"
 #import "SHTTabBarController.h"
 #import "LzgDevicePixlesHandle.h"
+#import "SHTPlistDataHandle.h"
 @interface AppDelegate ()<UITabBarControllerDelegate>
 @property(nonatomic,strong)LzgDevicePixlesHandle *k_screenHandler;
+@property(nonatomic,strong)SHTPlistDataHandle *k_plistHandle;
 @end
 
 @implementation AppDelegate
@@ -43,6 +45,8 @@
     }];
     self.window.rootViewController=rootBarVc;
 //
+    _k_plistHandle=[SHTPlistDataHandle shareInstance];
+
     [self.window makeKeyAndVisible];
 //    UINavigationController *navc_home=[UINavigationController alloc]
     // Override point for customization after application launch.

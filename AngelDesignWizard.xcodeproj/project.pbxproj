@@ -11,6 +11,11 @@
 		270249ED244ECDDB00CA68D6 /* SHTTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 270249EC244ECDDB00CA68D6 /* SHTTableViewCell.m */; };
 		270249EF244FDCAE00CA68D6 /* backbtn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 270249EE244FDCAE00CA68D6 /* backbtn.jpg */; };
 		270249F1244FDDD600CA68D6 /* backbtn1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270249F0244FDDD600CA68D6 /* backbtn1.png */; };
+		270249F5245065E400CA68D6 /* initializeHardData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 270249F4245065E400CA68D6 /* initializeHardData.plist */; };
+		270249F82450669B00CA68D6 /* SHTPlistDataHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 270249F72450669B00CA68D6 /* SHTPlistDataHandle.m */; };
+		270249FA24512E3F00CA68D6 /* seettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 270249F924512E3F00CA68D6 /* seettings.plist */; };
+		270249FC24513C0200CA68D6 /* 01.plist in Resources */ = {isa = PBXBuildFile; fileRef = 270249FB24513C0200CA68D6 /* 01.plist */; };
+		27024A032451708F00CA68D6 /* SHTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27024A012451708F00CA68D6 /* SHTLabel.m */; };
 		2773E1242446CC27008EEB3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2773E1232446CC27008EEB3F /* AppDelegate.m */; };
 		2773E12F2446CC2B008EEB3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2773E12E2446CC2B008EEB3F /* Assets.xcassets */; };
 		2773E1322446CC2B008EEB3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2773E1302446CC2B008EEB3F /* LaunchScreen.storyboard */; };
@@ -66,6 +71,13 @@
 		270249EC244ECDDB00CA68D6 /* SHTTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHTTableViewCell.m; sourceTree = "<group>"; };
 		270249EE244FDCAE00CA68D6 /* backbtn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backbtn.jpg; sourceTree = "<group>"; };
 		270249F0244FDDD600CA68D6 /* backbtn1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backbtn1.png; sourceTree = "<group>"; };
+		270249F4245065E400CA68D6 /* initializeHardData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = initializeHardData.plist; sourceTree = "<group>"; };
+		270249F62450669B00CA68D6 /* SHTPlistDataHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHTPlistDataHandle.h; sourceTree = "<group>"; };
+		270249F72450669B00CA68D6 /* SHTPlistDataHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHTPlistDataHandle.m; sourceTree = "<group>"; };
+		270249F924512E3F00CA68D6 /* seettings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = seettings.plist; sourceTree = "<group>"; };
+		270249FB24513C0200CA68D6 /* 01.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = 01.plist; sourceTree = "<group>"; };
+		27024A012451708F00CA68D6 /* SHTLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHTLabel.m; sourceTree = "<group>"; };
+		27024A022451708F00CA68D6 /* SHTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHTLabel.h; sourceTree = "<group>"; };
 		2773E11F2446CC27008EEB3F /* AngelDesignWizard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AngelDesignWizard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2773E1222446CC27008EEB3F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2773E1232446CC27008EEB3F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -198,6 +210,26 @@
 			path = "C++队列";
 			sourceTree = "<group>";
 		};
+		270249F3245065BF00CA68D6 /* 本地plist文件存储 */ = {
+			isa = PBXGroup;
+			children = (
+				270249F4245065E400CA68D6 /* initializeHardData.plist */,
+				270249F62450669B00CA68D6 /* SHTPlistDataHandle.h */,
+				270249F72450669B00CA68D6 /* SHTPlistDataHandle.m */,
+				270249FB24513C0200CA68D6 /* 01.plist */,
+			);
+			path = "本地plist文件存储";
+			sourceTree = "<group>";
+		};
+		270249FD2451694D00CA68D6 /* 左上显示的UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				27024A022451708F00CA68D6 /* SHTLabel.h */,
+				27024A012451708F00CA68D6 /* SHTLabel.m */,
+			);
+			path = "左上显示的UILabel";
+			sourceTree = "<group>";
+		};
 		2773E1162446CC27008EEB3F = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +249,8 @@
 		2773E1212446CC27008EEB3F /* AngelDesignWizard */ = {
 			isa = PBXGroup;
 			children = (
+				270249FD2451694D00CA68D6 /* 左上显示的UILabel */,
+				270249F3245065BF00CA68D6 /* 本地plist文件存储 */,
 				270249E6244EC19A00CA68D6 /* 自定义cell */,
 				279924922446FC1700105140 /* 发布 */,
 				2799247E2446F1FA00105140 /* 设备像素处理 */,
@@ -305,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				2799241A2446E0C700105140 /* IconImagesSetting.plist */,
+				270249F924512E3F00CA68D6 /* seettings.plist */,
 			);
 			path = "配置Plist文件";
 			sourceTree = "<group>";
@@ -531,9 +566,12 @@
 				270249F1244FDDD600CA68D6 /* backbtn1.png in Resources */,
 				2799241B2446E0C700105140 /* IconImagesSetting.plist in Resources */,
 				270249EF244FDCAE00CA68D6 /* backbtn.jpg in Resources */,
+				270249F5245065E400CA68D6 /* initializeHardData.plist in Resources */,
+				270249FC24513C0200CA68D6 /* 01.plist in Resources */,
 				2773E1322446CC2B008EEB3F /* LaunchScreen.storyboard in Resources */,
 				2773E12F2446CC2B008EEB3F /* Assets.xcassets in Resources */,
 				2773E13E2446D795008EEB3F /* 启动.jpg in Resources */,
+				270249FA24512E3F00CA68D6 /* seettings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +586,7 @@
 				279924682446EDE000105140 /* UIView+SDAutoLayout.m in Sources */,
 				2773E1242446CC27008EEB3F /* AppDelegate.m in Sources */,
 				279924662446EDE000105140 /* AFNetworkReachabilityManager.m in Sources */,
+				27024A032451708F00CA68D6 /* SHTLabel.m in Sources */,
 				270249E9244EC1BD00CA68D6 /* SHTMenuCell.m in Sources */,
 				279924712446EDE000105140 /* YYSpriteSheetImage.m in Sources */,
 				2799241F2446E12800105140 /* SHTMainBundleReader.m in Sources */,
@@ -560,6 +599,7 @@
 				279924672446EDE000105140 /* AFSecurityPolicy.m in Sources */,
 				279924762446EDE000105140 /* YYFrameImage.m in Sources */,
 				2799246A2446EDE000105140 /* _YYWebImageSetter.m in Sources */,
+				270249F82450669B00CA68D6 /* SHTPlistDataHandle.m in Sources */,
 				2799247D2446EDE000105140 /* CALayer+YYWebImage.m in Sources */,
 				279924772446EDE000105140 /* UIImageView+YYWebImage.m in Sources */,
 				2799249D2447021900105140 /* SHTReleaseVc.m in Sources */,

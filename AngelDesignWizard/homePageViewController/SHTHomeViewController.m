@@ -120,10 +120,12 @@
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([HomeViewControllerCollectionViewCell class]) forIndexPath:indexPath];
+    static int tag;
+    HomeViewControllerCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([HomeViewControllerCollectionViewCell class]) forIndexPath:indexPath];
 //    cell.contentView.backgroundColor=UIColor.redColor;
-    
-    switch (indexPath.row)
+    cell.tag=tag;
+    tag++;
+    switch (cell.tag)
     {
         case 0:
             cell.contentView.backgroundColor=UIColor.redColor;
@@ -135,6 +137,7 @@
             cell.contentView.backgroundColor=UIColor.blueColor;
             break;
     }
+    [cell.authorPortrait setImage:[UIImage imageNamed:@""]];
     return cell;
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
