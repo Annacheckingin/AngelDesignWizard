@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             uuid = "BA3C12CC-040B-45B3-AB80-37EAABEE5F0E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             scope = "1"
@@ -28,6 +28,22 @@
             startingLineNumber = "38"
             endingLineNumber = "38"
             landmarkName = "-p_findScreenInfor"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E2C7015E-E1D3-48FC-9FF9-D529A344CAA0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AngelDesignWizard/LibraryViewController/&#x9009;&#x62e9;&#x7684;&#x83dc;&#x5355;&#x89c6;&#x56fe;/UIButton&#x7684;&#x4e34;&#x65f6;&#x7684;&#x4e8b;&#x52a1;&#x5224;&#x65ad;&#x7c7b;&#x522b;/UIButton+SHTViewPresentLogic.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "-setIsShown:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

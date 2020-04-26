@@ -10,6 +10,9 @@
 #import "SHTPlistDataHandle.h"
 #import "SHTTableViewCell.h"
 #import "SHTLabel.h"
+#import "SHTMenuEventHandle.h"
+#import "UIButton+SHTViewPresentLogic.h"
+#import "Button_LogcMacro.h"
 @interface SHTLibraryViewController ()<UITableViewDelegate,UITableViewDataSource,SHTTableViewCellButtonActionDelegate>
 {
     BOOL needFresh;
@@ -22,6 +25,7 @@
 @property(nonatomic,weak)NSMutableArray *cateGoryS;
 @property(nonatomic,weak)NSMutableArray *cateGoryT;
 @property(nonatomic,weak)NSMutableArray *curentData;
+@property(nonatomic,strong)SHTMenuEventHandle *subMenuEventHandle;
 @end
 
 @implementation SHTLibraryViewController
@@ -29,6 +33,8 @@
 {
     if (self=[super init])
     {
+        _subMenuEventHandle=[[SHTMenuEventHandle alloc]init];
+        _subMenuEventHandle.viewControllerContext=self;
         _currenCategory=[[UILabel alloc]init];
         _currenCategory.text=@"Home furnishing villa";
         _currenCategory.font=[UIFont fontWithName:@"ArialRoundedMTBold" size:15];
@@ -39,13 +45,78 @@
         _displayContent.delegate=self;
         _displayContent.dataSource=self;
         self->needFresh=YES;
-        
+#pragma mark 事件绑定
+        [_choseCategory addTarget:self action:@selector(k_changeCategoryMenu:) forControlEvents:UIControlEventTouchUpInside];
+        _choseCategory.isShown=ButtonSHTViewPresentLogicMakeWithBOOL(NO);
 #pragma mark UI测试
         
         
         _displayContent.separatorStyle=UITableViewCellSeparatorStyleNone;
     }
     return self;
+}
+#pragma  mark 弹出选择小弹窗
+-(void)k_changeCategoryMenu:(UIButton *)sender
+{
+    static UITableView *menu=nil;
+    ButtonSHTViewPresentLogic v=sender.isShown;
+  static UIView *coberViewPoint;
+    typeof (self) weakSelf=self;
+    int8_t *bv=&v;
+    //下方判断是否已经弹出了选择视图,如果没有弹出视图，则弹出视图
+    if (!((*bv)&ButtonSHTViewPresentLogicMask))
+    {
+      
+          UITableView *subMenu=[[UITableView alloc]initWithFrame:CGRectMake(0, 20, SCREENWIDTH_SHT, 1)];
+//        subMenu.layer.cornerRadius=20;
+//        subMenu.clipsToBounds=YES;
+        subMenu.separatorStyle=UITableViewCellSelectionStyleNone;
+        subMenu.dataSource=_subMenuEventHandle;
+        subMenu.delegate=_subMenuEventHandle;
+          menu=subMenu;
+          UIImage *backimage=[UIImage imageNamed:@"1_129.png"];
+          subMenu.backgroundView.layer.contents=(__bridge id _Nullable)(backimage.CGImage);
+//        subMenu.backgroundColor=UIColor.clearColor;
+//        subMenu.backgroundColor=[UIColor colorWithPatternImage:backimage];
+        //  subMenu.delegate=_subMenuEventHandle;
+        //  subMenu.dataSource=_subMenuEventHandle;
+          [UIView transitionWithView:subMenu duration:0.2 options:UIViewAnimationOptionCurveEaseIn animations:^
+          {
+              [self.view addSubview:subMenu];
+              subMenu.sd_layout
+              .topSpaceToView(sender, 1)
+              .widthIs(SCREENWIDTH_SHT)
+              .heightIs(300);
+          } completion:^(BOOL finished)
+          {
+              ButtonSHTViewPresentLogic x=ButtonSHTViewPresentLogicMakeWithBOOL(YES);
+              sender.isShown=x;
+             weakSelf.displayContent.userInteractionEnabled=NO;
+              UIView *coverView=[[UIView alloc]init];
+              coverView.backgroundColor=UIColor.lightGrayColor;
+//              coverView.frame=[UIScreen mainScreen].bounds;
+              coverView.alpha=0.5;
+              [self.view insertSubview:coverView belowSubview:menu];
+              coberViewPoint=coverView;
+              coverView.sd_layout
+              .topEqualToView(menu)
+              .leftEqualToView(self.view)
+              .rightEqualToView(self.view)
+              .bottomEqualToView(self.view);
+              coberViewPoint=coverView;
+          }];
+       
+    }
+    else
+    {
+        menu.dataSource=nil;
+        menu.delegate=nil;
+        [menu removeFromSuperview];
+        [coberViewPoint removeFromSuperview];
+        sender.isShown=ButtonSHTViewPresentLogicMakeWithBOOL(NO);
+        weakSelf.displayContent.userInteractionEnabled=YES;
+    }
+    
 }
 #pragma mark tablviewDelegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -106,7 +177,7 @@
     cell.sloganText.text=cellinfor[@"introduce"];
     
 //     @property(nonatomic,readonly)UILabel *author;
-     cell.author.text=cellinfor[@"name"];
+    cell.author.text=[NSString stringWithFormat:@"Designer:%@",cellinfor[@"name"]];;
 //     @property(nonatomic,readonly)UIButton *blockBtn;
 //     @property(nonatomic,readonly)UIButton *reportBtn;
 //     @property(nonatomic,readonly)UILabel *dateMonth;
@@ -118,7 +189,9 @@
     NSNumber *objNum=cellinfor[@"stars"];
     
     cell.score.text=[NSString stringWithFormat:@"%d",objNum.intValue];
+    [cell setLikeCount:objNum.integerValue];
    //
+
     cell.delegate=self;
     return cell;
     
@@ -182,20 +255,19 @@
     _cateGoryT=self.contentData[@"SoftWork"];
     _curentData=_cateGoryF;
     //
-//    NSLog(@"%@",_contentData);
 }
 #pragma mark SHTCellDelegate
 -(void)SHTTableViewCellButtonActionDelegateViewFullAction:(UIButton *)sender
 {
-    NSLog(@"%s",sel_getName(_cmd));
+    
 }
 -(void)SHTTableViewCellButtonActionDelegateBlockAction:(UIButton *)sender
 {
-    NSLog(@"%s",sel_getName(_cmd));
+  
 }
 -(void)SHTTableViewCellButtonActionDelegateReportAction:(UIButton *)sender
 {
-    NSLog(@"%s",sel_getName(_cmd));
+    
 }
 /*
 #pragma mark - Navigation

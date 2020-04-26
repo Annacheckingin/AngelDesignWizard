@@ -128,7 +128,7 @@ static const char *SHTPlistDataHandleHardFIleAssociateKey="SHTPlistDataHandleHar
     }
     else
     {
-        NSLog(@"invalid Key");
+       
     }
 }
 +(void)initialize

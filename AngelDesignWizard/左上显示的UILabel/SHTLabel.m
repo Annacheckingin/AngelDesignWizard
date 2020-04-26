@@ -33,13 +33,6 @@
 }
 -(void)setText:(NSString *)text
 {
-//    NSString *theString=[text copy];
-//    CGSize theContentSize=[theString boundingRectWithSize:CGSizeMake(MAXFLOAT, self.frame.size.width) options:NSStringDrawingUsesFontLeading attributes:nil context:nil].size;
-//    CGRect theOriginlFrame=self.frame;
-//    theOriginlFrame.size=theContentSize;
-//    self.frame=theOriginlFrame;
-//    [self layoutIfNeeded];
-    NSLog(@"%s",sel_getName(_cmd));
     self.heightHandle(text);
     [super setText:text];
 }

@@ -16,6 +16,9 @@
 		270249FA24512E3F00CA68D6 /* seettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 270249F924512E3F00CA68D6 /* seettings.plist */; };
 		270249FC24513C0200CA68D6 /* 01.plist in Resources */ = {isa = PBXBuildFile; fileRef = 270249FB24513C0200CA68D6 /* 01.plist */; };
 		27024A032451708F00CA68D6 /* SHTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27024A012451708F00CA68D6 /* SHTLabel.m */; };
+		27024A08245280C700CA68D6 /* SHTMenuEventHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 27024A07245280C700CA68D6 /* SHTMenuEventHandle.m */; };
+		27024A0C245285F500CA68D6 /* UIButton+SHTViewPresentLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 27024A0B245285F500CA68D6 /* UIButton+SHTViewPresentLogic.m */; };
+		27024A392452B9FC00CA68D6 /* SHTSubMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27024A382452B9FC00CA68D6 /* SHTSubMenuCell.m */; };
 		2773E1242446CC27008EEB3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2773E1232446CC27008EEB3F /* AppDelegate.m */; };
 		2773E12F2446CC2B008EEB3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2773E12E2446CC2B008EEB3F /* Assets.xcassets */; };
 		2773E1322446CC2B008EEB3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2773E1302446CC2B008EEB3F /* LaunchScreen.storyboard */; };
@@ -78,6 +81,13 @@
 		270249FB24513C0200CA68D6 /* 01.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = 01.plist; sourceTree = "<group>"; };
 		27024A012451708F00CA68D6 /* SHTLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHTLabel.m; sourceTree = "<group>"; };
 		27024A022451708F00CA68D6 /* SHTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHTLabel.h; sourceTree = "<group>"; };
+		27024A06245280C700CA68D6 /* SHTMenuEventHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHTMenuEventHandle.h; sourceTree = "<group>"; };
+		27024A07245280C700CA68D6 /* SHTMenuEventHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHTMenuEventHandle.m; sourceTree = "<group>"; };
+		27024A0A245285F500CA68D6 /* UIButton+SHTViewPresentLogic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+SHTViewPresentLogic.h"; sourceTree = "<group>"; };
+		27024A0B245285F500CA68D6 /* UIButton+SHTViewPresentLogic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SHTViewPresentLogic.m"; sourceTree = "<group>"; };
+		27024A2324528BC600CA68D6 /* Button_LogcMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Button_LogcMacro.h; sourceTree = "<group>"; };
+		27024A372452B9FC00CA68D6 /* SHTSubMenuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHTSubMenuCell.h; sourceTree = "<group>"; };
+		27024A382452B9FC00CA68D6 /* SHTSubMenuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHTSubMenuCell.m; sourceTree = "<group>"; };
 		2773E11F2446CC27008EEB3F /* AngelDesignWizard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AngelDesignWizard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2773E1222446CC27008EEB3F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2773E1232446CC27008EEB3F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -230,6 +240,36 @@
 			path = "左上显示的UILabel";
 			sourceTree = "<group>";
 		};
+		27024A0424527FB400CA68D6 /* 选择的菜单视图 */ = {
+			isa = PBXGroup;
+			children = (
+				27024A09245285AD00CA68D6 /* UIButton的临时的事务判断类别 */,
+				27024A0524527FC100CA68D6 /* 菜单按钮cell */,
+				27024A06245280C700CA68D6 /* SHTMenuEventHandle.h */,
+				27024A07245280C700CA68D6 /* SHTMenuEventHandle.m */,
+			);
+			path = "选择的菜单视图";
+			sourceTree = "<group>";
+		};
+		27024A0524527FC100CA68D6 /* 菜单按钮cell */ = {
+			isa = PBXGroup;
+			children = (
+				27024A372452B9FC00CA68D6 /* SHTSubMenuCell.h */,
+				27024A382452B9FC00CA68D6 /* SHTSubMenuCell.m */,
+			);
+			path = "菜单按钮cell";
+			sourceTree = "<group>";
+		};
+		27024A09245285AD00CA68D6 /* UIButton的临时的事务判断类别 */ = {
+			isa = PBXGroup;
+			children = (
+				27024A0A245285F500CA68D6 /* UIButton+SHTViewPresentLogic.h */,
+				27024A0B245285F500CA68D6 /* UIButton+SHTViewPresentLogic.m */,
+				27024A2324528BC600CA68D6 /* Button_LogcMacro.h */,
+			);
+			path = "UIButton的临时的事务判断类别";
+			sourceTree = "<group>";
+		};
 		2773E1162446CC27008EEB3F = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +348,7 @@
 		279924112446DDF300105140 /* LibraryViewController */ = {
 			isa = PBXGroup;
 			children = (
+				27024A0424527FB400CA68D6 /* 选择的菜单视图 */,
 				270249EA244ECDBB00CA68D6 /* contentcell */,
 				279924882446F4D600105140 /* SHTLibraryViewController.h */,
 				279924892446F4D600105140 /* SHTLibraryViewController.m */,
@@ -602,8 +643,11 @@
 				270249F82450669B00CA68D6 /* SHTPlistDataHandle.m in Sources */,
 				2799247D2446EDE000105140 /* CALayer+YYWebImage.m in Sources */,
 				279924772446EDE000105140 /* UIImageView+YYWebImage.m in Sources */,
+				27024A08245280C700CA68D6 /* SHTMenuEventHandle.m in Sources */,
+				27024A392452B9FC00CA68D6 /* SHTSubMenuCell.m in Sources */,
 				2799249D2447021900105140 /* SHTReleaseVc.m in Sources */,
 				2773E1352446CC2B008EEB3F /* main.m in Sources */,
+				27024A0C245285F500CA68D6 /* UIButton+SHTViewPresentLogic.m in Sources */,
 				279924622446EDE000105140 /* AFURLResponseSerialization.m in Sources */,
 				2799246D2446EDE000105140 /* YYWebImageManager.m in Sources */,
 				2799248A2446F4D600105140 /* SHTLibraryViewController.m in Sources */,

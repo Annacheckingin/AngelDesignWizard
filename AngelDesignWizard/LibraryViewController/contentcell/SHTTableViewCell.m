@@ -12,7 +12,7 @@
 #define SHTRoutingMask 01
 #define SHTRoutingYES 017
 #define SHTRoutingNO 00
-typedef struct SHTTableViewCellSelectorRouting
+typedef struct
 {
     int8_t routingforReport:1;
     int8_t routingForblock:1;
@@ -42,8 +42,13 @@ typedef struct SHTTableViewCellSelectorRouting
     _sloganText.font=[UIFont fontWithName:@"AmericanTypewriter" size:11];
     _sloganText.numberOfLines=0;
     _sloganText.lineBreakMode=NSLineBreakByTruncatingTail;
-    NSLog(@"%d",sizeof(_actionRouting));
-    NSLog(@"sizeof_actionRouting):%o",_actionRouting);
+    _score.font=[UIFont fontWithName:@"AmericanTypewriter" size:11];
+    _author.textColor=UIColor.lightGrayColor;
+    _dateMonth.textColor=UIColor.grayColor;
+    _dateDay.textColor=UIColor.lightGrayColor;
+    _dateMonth.font=[UIFont fontWithName:@"Courier-BoldOblique" size:12];
+    _dateDay.font=[UIFont fontWithName:@"Courier" size:9];
+    
 }
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -63,7 +68,7 @@ typedef struct SHTTableViewCellSelectorRouting
         _dateMonth=[[UILabel alloc]init];
         _dateDay=[[UILabel alloc]init];
         _score=[UILabel new];
-        
+        _author.font=[UIFont fontWithName:@"AppleGothic" size:11];
     }
     [self k_configUi];
     [self.contentView sd_addSubviews:@[_glancePic,_viewFullSize,_sloganText,_author,_blockBtn,_reportBtn,_dateMonth,_dateDay,_score]];
@@ -129,6 +134,17 @@ typedef struct SHTTableViewCellSelectorRouting
     .heightIs(20)
     ;
     //
+    _dateMonth.sd_layout.leftSpaceToView(_glancePic, 2*WIDTH_LzgDevicePixlesHandle)
+    .centerYEqualToView(_score)
+    .heightIs(15*HEIGHT_LzgDevicePixlesHandle);
+    [_dateMonth setSingleLineAutoResizeWithMaxWidth:150];
+    //
+    _dateDay.sd_layout
+    .leftSpaceToView(_dateMonth, 10)
+    .heightRatioToView(_dateMonth, 1)
+    .centerYEqualToView(_dateMonth);
+    [_dateDay setSingleLineAutoResizeWithMaxWidth:100];
+    //
     //
     [self setupAutoHeightWithBottomView:_viewFullSize bottomMargin:10];
     return self;
@@ -137,8 +153,33 @@ typedef struct SHTTableViewCellSelectorRouting
     [super awakeFromNib];
     // Initialization code
 }
+-(UIImageView *)imageViewHeart{
+    UIImageView *heart=[[UIImageView alloc]init];
+    heart.image=[UIImage imageNamed:@"1_23"];
+    heart.contentMode=UIViewContentModeScaleAspectFit;
+    return heart;
+}
 -(void)setLikeCount:(NSInteger)count
 {
+    NSMutableArray *heartArray=[NSMutableArray array];
+    
+    
+    for (int k=0; k<count; k++)
+    {
+        [heartArray addObject:[self imageViewHeart]];
+    }
+    
+    UIView *refenfence=self.score;
+    for (UIView *obj in heartArray)
+    {
+        [self.contentView addSubview:obj];
+        obj.sd_layout
+        .rightSpaceToView(refenfence, 5)
+        .centerYEqualToView(refenfence)
+        .heightRatioToView(refenfence, 1)
+        .widthIs(15);
+        refenfence=obj;
+    }
     
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -177,33 +218,26 @@ typedef struct SHTTableViewCellSelectorRouting
     
     if([_delegate conformsToProtocol:@protocol(SHTTableViewCellButtonActionDelegate)])
     {
-        NSLog(@"did");
         int8_t *add=&(_actionRouting);
         *add=(*add)|SHTRoutingMask;
-       
+
+        if ([_delegate respondsToSelector:@selector(SHTTableViewCellButtonActionDelegateViewFullAction:)])
+               {
+                   [_viewFullSize addTarget:_delegate action:@selector(SHTTableViewCellButtonActionDelegateViewFullAction:) forControlEvents:UIControlEventTouchUpInside];
+                   *add=(*add)|(SHTRoutingMask<<1);
+               }
+        
         if ([_delegate respondsToSelector:@selector(SHTTableViewCellButtonActionDelegateBlockAction:)])
         {
             [_blockBtn addTarget:_delegate action:@selector(SHTTableViewCellButtonActionDelegateBlockAction:) forControlEvents:UIControlEventTouchUpInside];
             *add=(*add)|(SHTRoutingMask<<2);
-          
         }
         
         if ([_delegate respondsToSelector:@selector(SHTTableViewCellButtonActionDelegateReportAction:)])
         {
             [_reportBtn addTarget:_delegate action:@selector(SHTTableViewCellButtonActionDelegateReportAction:) forControlEvents:UIControlEventTouchUpInside];
             *add=(*add)|(SHTRoutingMask<<3);
-        
         }
-        
-        if ([_delegate respondsToSelector:@selector(SHTTableViewCellButtonActionDelegateViewFullAction:)])
-        {
-            [_viewFullSize addTarget:_delegate action:@selector(SHTTableViewCellButtonActionDelegateViewFullAction:) forControlEvents:UIControlEventTouchUpInside];
-            *add=(*add)|(SHTRoutingMask<<1);
-           
-        }
-//        int8_t *th=(int8_t *)(add);
-//        NSLog(@"%ld",sizeof(add));
-//        NSLog(@"%d",th);
     }
     [self setDelegate:_delegate];
     
