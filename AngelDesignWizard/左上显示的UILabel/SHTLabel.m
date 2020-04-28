@@ -9,13 +9,15 @@
 #import "SHTLabel.h"
 
 @implementation SHTLabel
+
 - (id)initWithFrame:(CGRect)frame {
     
     return [super initWithFrame:frame];
     
 }
 
-- (CGRect)textRectForBounds:(CGRect)bounds limitedToNumberOfLines:(NSInteger)numberOfLines {
+- (CGRect)textRectForBounds:(CGRect)bounds limitedToNumberOfLines:(NSInteger)numberOfLines
+{
     
     CGRect textRect = [super textRectForBounds:bounds limitedToNumberOfLines:numberOfLines];
     
@@ -33,7 +35,11 @@
 }
 -(void)setText:(NSString *)text
 {
-    self.heightHandle(text);
+    NSLog(@"%s",sel_getName(_cmd));
+   if (self.heightHandle)
+   {
+        self.heightHandle(text);
+   }
     [super setText:text];
 }
 /*

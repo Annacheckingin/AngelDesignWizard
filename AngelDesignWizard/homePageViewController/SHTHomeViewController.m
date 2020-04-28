@@ -13,6 +13,8 @@
 #import "SHTFlowLayout.h"
 #import "SHTPlistDataHandle.h"
 #import "SHTHomeDetailsVc.h"
+#import "NSString+SHTHeight.h"
+#import "SHTLabel.h"
 @interface SHTHomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,strong)UILabel *theme;
 @property(nonatomic,strong)UILabel *subtitle;
@@ -109,7 +111,7 @@
     .leftSpaceToView(self.view, 10*WIDTH_LzgDevicePixlesHandle)
     .topSpaceToView(self.view, 80*HEIGHT_LzgDevicePixlesHandle)
     .heightIs(40*HEIGHT_LzgDevicePixlesHandle);
-    [_theme setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH_SHT-100*WIDTH_LzgDevicePixlesHandle];
+    [_theme setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH_SHT-2*WIDTH_LzgDevicePixlesHandle];
     //
     _subtitle.sd_layout
     .topSpaceToView(_theme, 10*HEIGHT_LzgDevicePixlesHandle)
@@ -155,10 +157,9 @@
     NSURL *picUrl=[NSURL URLWithString:[cellInfor objectForKey:@"LargePic"]];
     [cell.mainDisplayPic yy_setImageWithURL:picUrl placeholder:[UIImage imageNamed:@"placeholder.png"]];
    [cell.authorPortrait yy_setImageWithURL:cellInfor[@"portrait"] placeholder:[UIImage imageNamed:@"placeholder.png"]];
-    //
     cell.authorName.text=cellInfor[@"author"];
     cell.theme.text=cellInfor[@"briefIntro"];
-
+    
     return cell;
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -171,20 +172,22 @@
     SHTHomeDetailsVc *vc=[[SHTHomeDetailsVc alloc]init];
     UIImage *placeImage=[UIImage imageNamed:@"placeholder.png"];
     NSDictionary *cellInfor=[_collectionViewData objectAtIndex:indexPath.row];
-    NSLog(@"cellinfor:%@",cellInfor);
-    vc.contentMake = ^(UIImageView * _Nonnull topimage, UILabel * _Nonnull pagetitle, UIImageView * _Nonnull portrait, UILabel * _Nonnull name, UIImageView * _Nonnull L_T, UIImageView * _Nonnull L_D, UIImageView * _Nonnull R_T, UIImageView * _Nonnull R_D, UILabel * _Nonnull breifContent)
+    vc.contentMake = ^(UIImageView * _Nonnull topimage, UILabel * _Nonnull pagetitle, UIImageView * _Nonnull portrait, UILabel * _Nonnull name, UIImageView * _Nonnull L_T, UIImageView * _Nonnull L_D, UIImageView * _Nonnull R_T, UIImageView * _Nonnull R_D, SHTLabel * _Nonnull breifContent)
     {
         [topimage yy_setImageWithURL:cellInfor[@"LargePic"] placeholder:placeImage];
     
         pagetitle.text=cellInfor[@"briefIntro"];
         [portrait yy_setImageWithURL:cellInfor[@"portrait"] placeholder:placeImage];
         name.text=cellInfor[@"author"];
-        NSLog(@"%@",cellInfor[@"img1"]);
+        
         [L_T yy_setImageWithURL:cellInfor[@"img1"] placeholder:placeImage];
         [L_D yy_setImageWithURL:cellInfor[@"img2"] placeholder:placeImage];
         [R_T yy_setImageWithURL:cellInfor[@"img3"] placeholder:placeImage];
         [R_D yy_setImageWithURL:cellInfor[@"img4"] placeholder:placeImage];
-        breifContent.text=cellInfor[@"introduce"];
+        breifContent.numberOfLines=0;
+        NSLog(@"preseting!");
+        breifContent.text=cellInfor[@"intro"];
+        
     };
     [self.navigationController pushViewController:vc animated:YES];
 }

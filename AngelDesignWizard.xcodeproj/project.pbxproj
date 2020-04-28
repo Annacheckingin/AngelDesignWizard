@@ -23,6 +23,7 @@
 		27024A862456717100CA68D6 /* SHTFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 27024A852456717100CA68D6 /* SHTFlowLayout.m */; };
 		27024A892457BEF900CA68D6 /* SHTDetailDataSourceAndDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27024A882457BEF900CA68D6 /* SHTDetailDataSourceAndDelegate.m */; };
 		27024A8C2457C07A00CA68D6 /* SHTDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27024A8B2457C07A00CA68D6 /* SHTDetailCell.m */; };
+		27024A902457F0D100CA68D6 /* NSString+SHTHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 27024A8F2457F0D100CA68D6 /* NSString+SHTHeight.m */; };
 		2773E1242446CC27008EEB3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2773E1232446CC27008EEB3F /* AppDelegate.m */; };
 		2773E12F2446CC2B008EEB3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2773E12E2446CC2B008EEB3F /* Assets.xcassets */; };
 		2773E1322446CC2B008EEB3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2773E1302446CC2B008EEB3F /* LaunchScreen.storyboard */; };
@@ -100,6 +101,8 @@
 		27024A882457BEF900CA68D6 /* SHTDetailDataSourceAndDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHTDetailDataSourceAndDelegate.m; sourceTree = "<group>"; };
 		27024A8A2457C07A00CA68D6 /* SHTDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHTDetailCell.h; sourceTree = "<group>"; };
 		27024A8B2457C07A00CA68D6 /* SHTDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHTDetailCell.m; sourceTree = "<group>"; };
+		27024A8E2457F0D100CA68D6 /* NSString+SHTHeight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+SHTHeight.h"; sourceTree = "<group>"; };
+		27024A8F2457F0D100CA68D6 /* NSString+SHTHeight.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHTHeight.m"; sourceTree = "<group>"; };
 		2773E11F2446CC27008EEB3F /* AngelDesignWizard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AngelDesignWizard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2773E1222446CC27008EEB3F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2773E1232446CC27008EEB3F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -293,6 +296,22 @@
 			path = "UICollectionVIewFlowLayout自定义";
 			sourceTree = "<group>";
 		};
+		27024A8D2457F0AC00CA68D6 /* String的高度计算 */ = {
+			isa = PBXGroup;
+			children = (
+				27024A8E2457F0D100CA68D6 /* NSString+SHTHeight.h */,
+				27024A8F2457F0D100CA68D6 /* NSString+SHTHeight.m */,
+			);
+			path = "String的高度计算";
+			sourceTree = "<group>";
+		};
+		27024A91245803D400CA68D6 /* 消息 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "消息";
+			sourceTree = "<group>";
+		};
 		2773E1162446CC27008EEB3F = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +331,7 @@
 		2773E1212446CC27008EEB3F /* AngelDesignWizard */ = {
 			isa = PBXGroup;
 			children = (
+				27024A8D2457F0AC00CA68D6 /* String的高度计算 */,
 				270249FD2451694D00CA68D6 /* 左上显示的UILabel */,
 				270249F3245065BF00CA68D6 /* 本地plist文件存储 */,
 				270249E6244EC19A00CA68D6 /* 自定义cell */,
@@ -383,6 +403,7 @@
 		279924122446DE0800105140 /* PersonViewController */ = {
 			isa = PBXGroup;
 			children = (
+				27024A91245803D400CA68D6 /* 消息 */,
 				279924852446F4BC00105140 /* SHTpersonViewController.h */,
 				279924862446F4BC00105140 /* SHTpersonViewController.m */,
 			);
@@ -701,6 +722,7 @@
 				27024A8C2457C07A00CA68D6 /* SHTDetailCell.m in Sources */,
 				279924692446EDE000105140 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				279924652446EDE000105140 /* AFURLRequestSerialization.m in Sources */,
+				27024A902457F0D100CA68D6 /* NSString+SHTHeight.m in Sources */,
 				27C652C324483ABE0059BF05 /* HomeViewControllerCollectionViewCell.m in Sources */,
 				279924732446EDE000105140 /* YYImageCoder.m in Sources */,
 				270249ED244ECDDB00CA68D6 /* SHTTableViewCell.m in Sources */,

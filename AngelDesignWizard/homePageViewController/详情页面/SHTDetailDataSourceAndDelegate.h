@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,weak)UILabel *introdutionLabel;
 @property(nonatomic,weak)UILabel *briefContent;
 @property(nonatomic,strong)UITableView *content;
+@property(nonatomic,assign)BOOL hascomments;
+@property(nonatomic,weak)NSMutableArray *dataform;
 @end
 
 NS_ASSUME_NONNULL_END

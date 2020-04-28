@@ -191,7 +191,7 @@
     _k_menu.sd_layout.bottomEqualToView(self.view)
     .leftEqualToView(self.view)
     .rightEqualToView(self.view)
-    .topSpaceToView(_k_followingLabel, 20*HEIGHT_LzgDevicePixlesHandle);
+    .topSpaceToView(_k_followingLabel, 10*HEIGHT_LzgDevicePixlesHandle);
     
 }
 -(void)viewWillAppear:(BOOL)animated

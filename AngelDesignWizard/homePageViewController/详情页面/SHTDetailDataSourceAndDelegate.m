@@ -8,16 +8,50 @@
 
 #import "SHTDetailDataSourceAndDelegate.h"
 #import "SHTDetailCell.h"
+#import "SHTLabel.h"
  static CGFloat theHeight;
 @implementation SHTDetailDataSourceAndDelegate
-
+-(instancetype)init
+{
+    if (self=[super init])
+    {
+        
+    }
+    return self;
+}
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
+    NSString *str;
     SHTDetailCell *cell=[tableView dequeueReusableCellWithIdentifier:NSStringFromClass([SHTDetailCell class])];
     if (cell==nil)
     {
-        cell=[[SHTDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([SHTDetailCell class]) insertT:_listPicsTitle  subPics_Lt_Lb_Rt_R_b:@[_picRightTopCorner,_picLeftBlow,_picRightTopCorner,_picRightblow] andLabel:_introdutionLabel andBriefLabel:_briefContent];
+        cell=[[SHTDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([SHTDetailCell class]) insertT:_listPicsTitle  subPics_Lt_Lb_Rt_R_b:@[_picLeftTopCorner,_picLeftBlow,_picRightTopCorner,_picRightblow] andLabel:_introdutionLabel andBriefLabel:_briefContent];
+        str=_briefContent.text;
     }
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    _briefContent.text=str;
+//    __weak SHTLabel *label=(SHTLabel *)_briefContent;
+//    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+//    label.heightHandle = ^(NSString * _Nonnull text)
+//    {
+//        if (text!=nil)
+//        {
+//                  NSLog(@"%@",label.heightHandle);
+//                  NSLog(@"-----%lf",[text sHTHeightInWidth:SCREENWIDTH_SHT-20*WIDTH_LzgDevicePixlesHandle]);
+//                     label.sd_resetLayout
+//                   .leftEqualToView(_introdutionLabel)
+//                     .rightSpaceToView(baseView, 10*WIDTH_LzgDevicePixlesHandle)
+//                     .topSpaceToView(_introdutionLabel, 1*HEIGHT_LzgDevicePixlesHandle)
+//                     .heightIs([text sHTHeightInWidth:SCREENWIDTH_SHT-20*WIDTH_LzgDevicePixlesHandle]*HEIGHT_LzgDevicePixlesHandle);
+//                     if (label.heightHandle==nil)
+//                     {
+//                         NSLog(@"nil");
+//                     }
+//                     else
+//                     {
+//                         NSLog(@"not nil");
+//                     }
+//        }
     return cell;
 }
 
@@ -27,15 +61,20 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [tableView cellHeightForIndexPath:indexPath cellContentViewWidth:SCREENWIDTH_SHT tableView:tableView];
+//    return [tableView cellHeightForIndexPath:indexPath cellContentViewWidth:SCREENWIDTH_SHT tableView:tableView];
+    return 100;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 50;
+    if (_hascomments)
+    {
+        return 550;
+    }
+    return 350;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return theHeight;
+    return (300+30)*HEIGHT_LzgDevicePixlesHandle;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
@@ -44,13 +83,9 @@
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-//    _pagetitle,_portrait,_name,_likes
-//    UIImageView *_topimage=[[UIImageView alloc]init];
-//    UILabel *_pagetitle=[[UILabel alloc]init];
-//    UIImageView *_portrait=[[UIImageView alloc]init];
-//    UILabel *_name=[[UILabel alloc]init];
-//    UIButton *_likes=[[UIButton alloc]init];
-    UIView *view;
+    UIView *view=[[UIView alloc]init];
+    view.backgroundColor=UIColor.clearColor;
+    [view sd_addSubviews:@[_topimage,_reportBtn,_blockBtn]];
     [_topimage sd_addSubviews:@[_pagetitle,_portrait,_name,_likes]];
     //
     _pagetitle.sd_layout
@@ -95,10 +130,10 @@
     .centerYEqualToView(_reportBtn)
     .heightRatioToView(_reportBtn, 1)
     .widthRatioToView(_reportBtn, 1);
+    //
     
-   
-    theHeight =_topimage.height+10*HEIGHT_LzgDevicePixlesHandle+20;
-    [self tableView:tableView heightForHeaderInSection:section];
-    return _topimage;
+    
+    
+    return view;
 }
 @end

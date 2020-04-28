@@ -8,6 +8,7 @@
 
 #import "SHTHomeDetailsVc.h"
 #import "SHTDetailDataSourceAndDelegate.h"
+#import "SHTLabel.h"
 @interface SHTHomeDetailsVc ()
 @property(nonatomic,assign)BOOL isLike;
 @property(nonatomic,strong)SHTDetailDataSourceAndDelegate* DADobject;
@@ -49,7 +50,8 @@
          @property(nonatomic,strong)UITableView *comments;
          **/
         _DADobject=[[SHTDetailDataSourceAndDelegate alloc]init];
-        _content=[[UITableView alloc]init];
+        _content=[[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+//      _content.style
         _content.delegate=_DADobject;
         _content.dataSource=_DADobject;
         _topimage=[[UIImageView alloc]init];
@@ -71,16 +73,31 @@
         _picLeftBlow=[[UIImageView alloc]init];
         _picRightblow=[[UIImageView alloc]init];
         _introdutionLabel=[[UILabel alloc]init];
-        _introdutionLabel.text=@"introduction to works";
-        _briefContent=[[UILabel alloc]init];
+        _introdutionLabel.text=[@"introduction to works" capitalizedString] ;
+        _briefContent=[[SHTLabel alloc]init];
         _briefContent.lineBreakMode=NSLineBreakByTruncatingTail;
         _briefContent.textColor=UIColor.lightGrayColor;
+        _briefContent.font=[UIFont fontWithName:@"ArialRoundedMTBold" size:11];
 #pragma mark 事件绑定
         [_likes addTarget:self action:@selector(k_likeAction:) forControlEvents:UIControlEventTouchUpInside];
         [_reportBtn setImage:[UIImage imageNamed:@"1_39"] forState:UIControlStateNormal];
         [_reportBtn addTarget:self action:@selector(k_ReportAction:) forControlEvents:UIControlEventTouchUpInside];
         [_blockBtn addTarget:self action:@selector(k_blockAction:) forControlEvents:UIControlEventTouchUpInside];
         [_blockBtn setImage:[UIImage imageNamed:@"1_42"] forState:UIControlStateNormal];
+        _DADobject.blockBtn=self.blockBtn;
+        _DADobject.reportBtn=self.reportBtn;
+        _DADobject.topimage=self.topimage;
+        _DADobject.pagetitle=self.pagetitle;
+        _DADobject.likes=self.likes;
+        _DADobject.name=self.name;
+        _DADobject.portrait=self.portrait;
+        _DADobject.listPicsTitle=self.listPicsTitle;
+        _DADobject.picLeftBlow=self.picLeftBlow;
+        _DADobject.picLeftTopCorner=self.picLeftTopCorner;
+        _DADobject.picRightblow=self.picRightblow;
+        _DADobject.picRightTopCorner=self.picRightTopCorner;
+        _DADobject.introdutionLabel=self.introdutionLabel;
+        _DADobject.briefContent=self.briefContent;
     }
     return self;
 }
@@ -106,6 +123,13 @@
 }
 -(void)setUpUi
 {
+    [self.view addSubview:_content];
+    _content.sd_layout
+    .leftEqualToView(self.view)
+    .rightEqualToView(self.view)
+    .topEqualToView(self.view)
+    .bottomEqualToView(self.view);
+    //
 //  [_topimage sd_addSubviews:@[_pagetitle,_portrait,_name,_likes]];
 ////    _likes.backgroundColor=UIColor.redColor;
 //    //
@@ -114,7 +138,7 @@
 //    .topSpaceToView(_topimage, 20*HEIGHT_LzgDevicePixlesHandle+[UIApplication sharedApplication].statusBarFrame.size.height)
 //    .heightIs(20*HEIGHT_LzgDevicePixlesHandle);
 //    [_pagetitle setSingleLineAutoResizeWithMaxWidth:250];
-//    
+//
 //    //
 //    _portrait.sd_layout
 //    .bottomSpaceToView(_topimage, 10*HEIGHT_LzgDevicePixlesHandle)
@@ -134,12 +158,12 @@
 //    .widthEqualToHeight()
 //    .rightSpaceToView(_topimage, 10);
 //    //
-//    
+//
 //    //
 //   [self.view sd_addSubviews:@[_topimage,_reportBtn,_blockBtn,_listPicsTitle,_picRightblow,_picLeftBlow,_picRightTopCorner,_picLeftTopCorner,_introdutionLabel,_briefContent]];
-//    
+//
 //    //
-//    
+//
 //    _topimage.sd_layout
 //    .topEqualToView(self.view)
 //    .leftEqualToView(self.view)

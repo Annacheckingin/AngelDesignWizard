@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "SHTBaseViewControllerWithBackBtn.h"
 NS_ASSUME_NONNULL_BEGIN
-typedef void (^SHTHomedetaisContentmake)(UIImageView *topimage,UILabel *pagetitle,UIImageView *portrait,UILabel *name ,UIImageView *L_T,UIImageView *L_D,UIImageView *R_T,UIImageView *R_D,UILabel *breifContent);
+@class SHTLabel;
+typedef void (^SHTHomedetaisContentmake)(UIImageView *topimage,UILabel *pagetitle,UIImageView *portrait,UILabel *name ,UIImageView *L_T,UIImageView *L_D,UIImageView *R_T,UIImageView *R_D,SHTLabel *breifContent);
 @interface SHTHomeDetailsVc : SHTBaseViewControllerWithBackBtn
 @property(nonatomic,readonly)UILabel *pagetitle;
 @property(nonatomic,readonly)UIImageView *topimage;
@@ -24,7 +25,7 @@ typedef void (^SHTHomedetaisContentmake)(UIImageView *topimage,UILabel *pagetitl
 @property(nonatomic,readonly)UIImageView *picLeftBlow;
 @property(nonatomic,readonly)UIImageView *picRightblow;
 @property(nonatomic,readonly)UILabel *introdutionLabel;
-@property(nonatomic,readonly)UILabel *briefContent;
+@property(nonatomic,readonly)SHTLabel *briefContent;
 @property(nonatomic,strong)UITableView *content;
 @property(nonatomic,strong)UITableView *comments;
 @property(nonatomic,copy)SHTHomedetaisContentmake contentMake;

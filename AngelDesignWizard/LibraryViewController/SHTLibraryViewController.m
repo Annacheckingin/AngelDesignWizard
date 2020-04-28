@@ -223,7 +223,6 @@
 
 //     @property(nonatomic,readonly)UITextView *sloganText;
     cell.sloganText.text=cellinfor[@"introduce"];
-    
 //     @property(nonatomic,readonly)UILabel *author;
     cell.author.text=[NSString stringWithFormat:@"Designer:%@",cellinfor[@"name"]];;
 //     @property(nonatomic,readonly)UIButton *blockBtn;
