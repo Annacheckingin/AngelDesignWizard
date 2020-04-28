@@ -13,6 +13,8 @@
 #import "SHTMenuEventHandle.h"
 #import "UIButton+SHTViewPresentLogic.h"
 #import "Button_LogcMacro.h"
+#import "UITableView+SHTBelong.h"
+#import "SHTSubMenuCell.h"
 @interface SHTLibraryViewController ()<UITableViewDelegate,UITableViewDataSource,SHTTableViewCellButtonActionDelegate>
 {
     BOOL needFresh;
@@ -26,6 +28,7 @@
 @property(nonatomic,weak)NSMutableArray *cateGoryT;
 @property(nonatomic,weak)NSMutableArray *curentData;
 @property(nonatomic,strong)SHTMenuEventHandle *subMenuEventHandle;
+@property(nonatomic,strong)UITableView *menuView;
 @end
 
 @implementation SHTLibraryViewController
@@ -60,7 +63,7 @@
 {
     static UITableView *menu=nil;
     ButtonSHTViewPresentLogic v=sender.isShown;
-  static UIView *coberViewPoint;
+    static UIView *coberViewPoint;
     typeof (self) weakSelf=self;
     int8_t *bv=&v;
     //下方判断是否已经弹出了选择视图,如果没有弹出视图，则弹出视图
@@ -68,11 +71,30 @@
     {
       
           UITableView *subMenu=[[UITableView alloc]initWithFrame:CGRectMake(0, 20, SCREENWIDTH_SHT, 1)];
+        subMenu.scrollEnabled=NO;
+        self.menuView=subMenu;
+        self.menuView.belongto=self;
 //        subMenu.layer.cornerRadius=20;
 //        subMenu.clipsToBounds=YES;
         subMenu.separatorStyle=UITableViewCellSelectionStyleNone;
         subMenu.dataSource=_subMenuEventHandle;
         subMenu.delegate=_subMenuEventHandle;
+        
+//  SHTSubMenuCell *acell=[subMenu cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+//        [acell  setSelected:YES animated:YES];
+//        NSLog(@"%d",acell.selected);
+        static  NSInteger currentIndex;
+        [subMenu deselectRowAtIndexPath:[NSIndexPath indexPathForRow:currentIndex inSection:0] animated:YES];
+        UITableViewCell *DC=[subMenu cellForRowAtIndexPath:[NSIndexPath indexPathForRow:currentIndex inSection:0]];
+        [DC setSelected:NO];
+        if(_curentData==_cateGoryF){currentIndex=0;}
+        else if (_curentData==_cateGoryS){currentIndex=1;}
+        else if (_curentData==_cateGoryT){currentIndex=2;}
+        
+        [subMenu selectRowAtIndexPath:[NSIndexPath indexPathForRow:currentIndex inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+        
+        UITableViewCell *aC=[subMenu cellForRowAtIndexPath:[NSIndexPath indexPathForRow:currentIndex inSection:0]];
+        [aC setSelected:YES];
           menu=subMenu;
           UIImage *backimage=[UIImage imageNamed:@"1_129.png"];
           subMenu.backgroundView.layer.contents=(__bridge id _Nullable)(backimage.CGImage);
@@ -93,6 +115,8 @@
               sender.isShown=x;
              weakSelf.displayContent.userInteractionEnabled=NO;
               UIView *coverView=[[UIView alloc]init];
+              UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(k_down:)];
+              [coverView addGestureRecognizer:tap];
               coverView.backgroundColor=UIColor.lightGrayColor;
 //              coverView.frame=[UIScreen mainScreen].bounds;
               coverView.alpha=0.5;
@@ -118,6 +142,30 @@
     }
     
 }
+-(void)k_down:(UITapGestureRecognizer *)reg
+{
+    [self k_changeCategoryMenu:self.choseCategory];
+}
+#pragma mark tableView的选择菜单的事件
+-(void)changeTheCurrentDataWithIndex:(NSInteger) index
+{
+    switch (index)
+    {
+            case 0:
+            _curentData=_cateGoryF;
+            break;
+            case 1:
+            _curentData=_cateGoryS;
+            break;
+            case 2:
+            _curentData=_cateGoryT;
+            break;
+            default:
+            break;
+    }
+    [_displayContent reloadData];
+}
+
 #pragma mark tablviewDelegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -191,7 +239,7 @@
     cell.score.text=[NSString stringWithFormat:@"%d",objNum.intValue];
     [cell setLikeCount:objNum.integerValue];
    //
-
+    
     cell.delegate=self;
     return cell;
     
@@ -205,7 +253,12 @@
 //    self.view SHT_a
     [self setUpUi];
     [self uiTest];
+    [self k_choseData];
     // Do any additional setup after loading the view.
+}
+-(void)k_choseData
+{
+    _curentData=_cateGoryF;
 }
 -(void)uiTest
 {
@@ -254,6 +307,7 @@
     _cateGoryS=self.contentData[@"FamousCompany"];
     _cateGoryT=self.contentData[@"SoftWork"];
     _curentData=_cateGoryF;
+//    _curentData=_cateGoryF;
     //
 }
 #pragma mark SHTCellDelegate

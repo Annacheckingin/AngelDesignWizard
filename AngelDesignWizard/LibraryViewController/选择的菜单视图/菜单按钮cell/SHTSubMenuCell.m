@@ -38,7 +38,7 @@
     .centerXEqualToView(self.contentView)
     .heightIs(30);
     [_content setSingleLineAutoResizeWithMaxWidth:150];
-    [self setupAutoHeightWithBottomViewsArray:@[self.contentView] bottomMargin:0];
+    [self setupAutoHeightWithBottomViewsArray:@[self.contentView] bottomMargin:20*HEIGHT_LzgDevicePixlesHandle];
     return self;
 }
 - (void)awakeFromNib {
@@ -49,6 +49,7 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     
     [super setSelected:selected animated:animated];
+//    NSLog(@"tureLyIncomer");
     if (selected==YES)
     {
         self.preTrangle.image=[UIImage imageNamed:@"traleft"];

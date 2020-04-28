@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,readonly)UILabel *theme;
 @property(nonatomic,readonly)UILabel *subtitle;
 @property(nonatomic,readonly)UIButton *publishButton;
+@property(nonatomic,weak)UICollectionView *collectV;
 @end
 
 NS_ASSUME_NONNULL_END

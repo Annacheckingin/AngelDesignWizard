@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,readonly)UILabel *currenCategory;
 @property(nonatomic,readonly)UIButton *choseCategory;
 @property(nonatomic,readonly)UITableView *displayContent;
+-(void)changeTheCurrentDataWithIndex:(NSInteger) index;
 @end
 
 NS_ASSUME_NONNULL_END

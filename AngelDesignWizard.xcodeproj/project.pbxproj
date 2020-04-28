@@ -19,6 +19,10 @@
 		27024A08245280C700CA68D6 /* SHTMenuEventHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 27024A07245280C700CA68D6 /* SHTMenuEventHandle.m */; };
 		27024A0C245285F500CA68D6 /* UIButton+SHTViewPresentLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 27024A0B245285F500CA68D6 /* UIButton+SHTViewPresentLogic.m */; };
 		27024A392452B9FC00CA68D6 /* SHTSubMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27024A382452B9FC00CA68D6 /* SHTSubMenuCell.m */; };
+		27024A8224566FB700CA68D6 /* UITableView+SHTBelong.m in Sources */ = {isa = PBXBuildFile; fileRef = 27024A8124566FB700CA68D6 /* UITableView+SHTBelong.m */; };
+		27024A862456717100CA68D6 /* SHTFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 27024A852456717100CA68D6 /* SHTFlowLayout.m */; };
+		27024A892457BEF900CA68D6 /* SHTDetailDataSourceAndDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27024A882457BEF900CA68D6 /* SHTDetailDataSourceAndDelegate.m */; };
+		27024A8C2457C07A00CA68D6 /* SHTDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27024A8B2457C07A00CA68D6 /* SHTDetailCell.m */; };
 		2773E1242446CC27008EEB3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2773E1232446CC27008EEB3F /* AppDelegate.m */; };
 		2773E12F2446CC2B008EEB3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2773E12E2446CC2B008EEB3F /* Assets.xcassets */; };
 		2773E1322446CC2B008EEB3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2773E1302446CC2B008EEB3F /* LaunchScreen.storyboard */; };
@@ -88,6 +92,14 @@
 		27024A2324528BC600CA68D6 /* Button_LogcMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Button_LogcMacro.h; sourceTree = "<group>"; };
 		27024A372452B9FC00CA68D6 /* SHTSubMenuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHTSubMenuCell.h; sourceTree = "<group>"; };
 		27024A382452B9FC00CA68D6 /* SHTSubMenuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHTSubMenuCell.m; sourceTree = "<group>"; };
+		27024A8024566FB700CA68D6 /* UITableView+SHTBelong.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+SHTBelong.h"; sourceTree = "<group>"; };
+		27024A8124566FB700CA68D6 /* UITableView+SHTBelong.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SHTBelong.m"; sourceTree = "<group>"; };
+		27024A842456717100CA68D6 /* SHTFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHTFlowLayout.h; sourceTree = "<group>"; };
+		27024A852456717100CA68D6 /* SHTFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHTFlowLayout.m; sourceTree = "<group>"; };
+		27024A872457BEF900CA68D6 /* SHTDetailDataSourceAndDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHTDetailDataSourceAndDelegate.h; sourceTree = "<group>"; };
+		27024A882457BEF900CA68D6 /* SHTDetailDataSourceAndDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHTDetailDataSourceAndDelegate.m; sourceTree = "<group>"; };
+		27024A8A2457C07A00CA68D6 /* SHTDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHTDetailCell.h; sourceTree = "<group>"; };
+		27024A8B2457C07A00CA68D6 /* SHTDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHTDetailCell.m; sourceTree = "<group>"; };
 		2773E11F2446CC27008EEB3F /* AngelDesignWizard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AngelDesignWizard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2773E1222446CC27008EEB3F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2773E1232446CC27008EEB3F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -209,6 +221,8 @@
 			children = (
 				270249EB244ECDDB00CA68D6 /* SHTTableViewCell.h */,
 				270249EC244ECDDB00CA68D6 /* SHTTableViewCell.m */,
+				27024A8024566FB700CA68D6 /* UITableView+SHTBelong.h */,
+				27024A8124566FB700CA68D6 /* UITableView+SHTBelong.m */,
 			);
 			path = contentcell;
 			sourceTree = "<group>";
@@ -268,6 +282,15 @@
 				27024A2324528BC600CA68D6 /* Button_LogcMacro.h */,
 			);
 			path = "UIButton的临时的事务判断类别";
+			sourceTree = "<group>";
+		};
+		27024A832456713A00CA68D6 /* UICollectionVIewFlowLayout自定义 */ = {
+			isa = PBXGroup;
+			children = (
+				27024A842456717100CA68D6 /* SHTFlowLayout.h */,
+				27024A852456717100CA68D6 /* SHTFlowLayout.m */,
+			);
+			path = "UICollectionVIewFlowLayout自定义";
 			sourceTree = "<group>";
 		};
 		2773E1162446CC27008EEB3F = {
@@ -335,10 +358,11 @@
 		279924102446DDE500105140 /* homePageViewController */ = {
 			isa = PBXGroup;
 			children = (
+				27024A832456713A00CA68D6 /* UICollectionVIewFlowLayout自定义 */,
 				270249F2245017E900CA68D6 /* C++队列 */,
 				279924932446FC3400105140 /* 详情页面 */,
 				27C652C024483A910059BF05 /* 自定义的CollectionViewCell */,
-				279924972446FE3900105140 /* 自定义的UIcollectionLayout */,
+				279924972446FE3900105140 /* 自定义的UIcollectionLayout(暂不用) */,
 				2799248B2446F4E700105140 /* SHTHomeViewController.h */,
 				2799248C2446F4E700105140 /* SHTHomeViewController.m */,
 			);
@@ -525,17 +549,21 @@
 			children = (
 				279924942446FC5C00105140 /* SHTHomeDetailsVc.h */,
 				279924952446FC5C00105140 /* SHTHomeDetailsVc.m */,
+				27024A872457BEF900CA68D6 /* SHTDetailDataSourceAndDelegate.h */,
+				27024A882457BEF900CA68D6 /* SHTDetailDataSourceAndDelegate.m */,
+				27024A8A2457C07A00CA68D6 /* SHTDetailCell.h */,
+				27024A8B2457C07A00CA68D6 /* SHTDetailCell.m */,
 			);
 			path = "详情页面";
 			sourceTree = "<group>";
 		};
-		279924972446FE3900105140 /* 自定义的UIcollectionLayout */ = {
+		279924972446FE3900105140 /* 自定义的UIcollectionLayout(暂不用) */ = {
 			isa = PBXGroup;
 			children = (
 				279924982446FE5F00105140 /* SHTCollectionViewLayout.h */,
 				279924992446FE5F00105140 /* SHTCollectionViewLayout.m */,
 			);
-			path = "自定义的UIcollectionLayout";
+			path = "自定义的UIcollectionLayout(暂不用)";
 			sourceTree = "<group>";
 		};
 		27C652C024483A910059BF05 /* 自定义的CollectionViewCell */ = {
@@ -623,6 +651,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27024A892457BEF900CA68D6 /* SHTDetailDataSourceAndDelegate.m in Sources */,
 				2799246B2446EDE000105140 /* YYImageCache.m in Sources */,
 				279924682446EDE000105140 /* UIView+SDAutoLayout.m in Sources */,
 				2773E1242446CC27008EEB3F /* AppDelegate.m in Sources */,
@@ -633,6 +662,7 @@
 				2799241F2446E12800105140 /* SHTMainBundleReader.m in Sources */,
 				279924162446DF0D00105140 /* SHTBaseViewControllerWithBackBtn.m in Sources */,
 				279924782446EDE000105140 /* YYMemoryCache.m in Sources */,
+				27024A8224566FB700CA68D6 /* UITableView+SHTBelong.m in Sources */,
 				279924642446EDE000105140 /* AFURLSessionManager.m in Sources */,
 				279924742446EDE000105140 /* YYKVStorage.m in Sources */,
 				279924632446EDE000105140 /* AFHTTPSessionManager.m in Sources */,
@@ -666,7 +696,9 @@
 				279924912446FACC00105140 /* SHTTabBarController.m in Sources */,
 				2799246F2446EDE000105140 /* YYCache.m in Sources */,
 				279924792446EDE000105140 /* YYAnimatedImageView.m in Sources */,
+				27024A862456717100CA68D6 /* SHTFlowLayout.m in Sources */,
 				2799246C2446EDE000105140 /* YYDiskCache.m in Sources */,
+				27024A8C2457C07A00CA68D6 /* SHTDetailCell.m in Sources */,
 				279924692446EDE000105140 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				279924652446EDE000105140 /* AFURLRequestSerialization.m in Sources */,
 				27C652C324483ABE0059BF05 /* HomeViewControllerCollectionViewCell.m in Sources */,

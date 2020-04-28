@@ -10,12 +10,16 @@
 #import "SHTCollectionViewLayout.h"
 #import "SHTReleaseVc.h"
 #import "HomeViewControllerCollectionViewCell.h"
+#import "SHTFlowLayout.h"
+#import "SHTPlistDataHandle.h"
+#import "SHTHomeDetailsVc.h"
 @interface SHTHomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,strong)UILabel *theme;
 @property(nonatomic,strong)UILabel *subtitle;
 @property(nonatomic,strong)UIButton *publishButton;
 @property(nonatomic,strong)UICollectionView *gridDisplay;
 @property(nonatomic,strong)NSMutableArray *collectionViewData;
+@property(nonatomic,assign)BOOL isReResh;
 @end
 
 
@@ -23,21 +27,40 @@
 @implementation SHTHomeViewController
 #pragma mark UICollectionView的数据源
 
+-(void)k_NewData
+{
+    SHTPlistDataHandle *plsthandle=[SHTPlistDataHandle shareInstance];
+    NSDictionary *dic=[plsthandle fetchDataWithKey:@"Home"];
+//    NSLog(@"reFresh:%@",dic);
+    _collectionViewData=[NSMutableArray arrayWithArray:dic[@"collectionViewData"]];
+//    NSLog(@"%@",_collectionViewData);
+    [_gridDisplay reloadData];
+    _isReResh=NO;
+}
 -(instancetype)init
 {
     if (self=[super init])
     {
 #pragma mark 分配内存
+        _collectionViewData=[NSMutableArray array];
+        _isReResh=YES;
         _theme=[[UILabel alloc]init];
         _subtitle=[[UILabel alloc]init];
-        SHTCollectionViewLayout *layout=[[SHTCollectionViewLayout alloc]init];
-        layout.theItemSize=CGSizeMake(SCREENWIDTH_SHT-40, SCREENWIDTH_SHT-40+90);
-        layout.sectionEdgeinsect=UIEdgeInsetsMake(20, 20, 10, 20);
-        layout.theItemGap=10;
-        layout.cellOffset=30;
-        layout.cellScale=0.1;
-        layout.scrollDirection=SHTScrollDirectionVertical;
-        _gridDisplay=[[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
+//        SHTCollectionViewLayout *layout=[[SHTCollectionViewLayout alloc]init];
+//        layout.theItemSize=CGSizeMake(SCREENWIDTH_SHT-40, SCREENWIDTH_SHT-40+90);
+//        layout.sectionEdgeinsect=UIEdgeInsetsMake(20, 20, 10, 20);
+//        layout.theItemGap=10;
+//        layout.cellOffset=30;
+//        layout.cellScale=0.1;
+//        layout.scrollDirection=SHTScrollDirectionVertical;
+//        _gridDisplay=[[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
+        UICollectionViewFlowLayout *flowLayout=[[SHTFlowLayout alloc]init];
+        flowLayout.scrollDirection=UICollectionViewScrollDirectionHorizontal;
+        flowLayout.minimumInteritemSpacing=10;
+        flowLayout.itemSize=CGSizeMake(SCREENWIDTH_SHT-20*WIDTH_LzgDevicePixlesHandle, SCREENHEIGHT_SHT-(171+100)*HEIGHT_LzgDevicePixlesHandle);
+       
+        flowLayout.sectionInset=UIEdgeInsetsMake(10, 10, 10, 10);
+    _gridDisplay=[[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
        _publishButton=[[UIButton alloc]init];
         [_gridDisplay registerClass:[HomeViewControllerCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([HomeViewControllerCollectionViewCell class])];
         _gridDisplay.showsVerticalScrollIndicator=NO;
@@ -48,6 +71,7 @@
         //
         _gridDisplay.delegate=self;
         _gridDisplay.dataSource=self;
+        
         //
 #pragma mark UI设计
         //
@@ -62,7 +86,7 @@
         _subtitle.font=[UIFont fontWithName:@"CourierNewPSMT" size:12];
         _subtitle.textColor=UIColor.lightGrayColor;
         _gridDisplay.backgroundColor=[UIColor colorWithRed:245/255.0 green:247/255.0 blue:250/255.0 alpha:1];
-//        _gridDisplay.backgroundColor=UIColor.greenColor;
+      
      
     }
     return self;
@@ -111,6 +135,11 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    if (_isReResh==YES)
+    {
+         [self k_NewData];
+    }
+   
 }
 
 #pragma mark 提供UICollectionViewCell
@@ -120,29 +149,43 @@
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    static int tag;
+    
     HomeViewControllerCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([HomeViewControllerCollectionViewCell class]) forIndexPath:indexPath];
-//    cell.contentView.backgroundColor=UIColor.redColor;
-    cell.tag=tag;
-    tag++;
-    switch (cell.tag)
-    {
-        case 0:
-            cell.contentView.backgroundColor=UIColor.redColor;
-            break;
-        case 1:
-            cell.contentView.backgroundColor=UIColor.greenColor;
-            break;
-        default:
-            cell.contentView.backgroundColor=UIColor.blueColor;
-            break;
-    }
-    [cell.authorPortrait setImage:[UIImage imageNamed:@""]];
+    NSDictionary *cellInfor=[_collectionViewData objectAtIndex:indexPath.row];
+    NSURL *picUrl=[NSURL URLWithString:[cellInfor objectForKey:@"LargePic"]];
+    [cell.mainDisplayPic yy_setImageWithURL:picUrl placeholder:[UIImage imageNamed:@"placeholder.png"]];
+   [cell.authorPortrait yy_setImageWithURL:cellInfor[@"portrait"] placeholder:[UIImage imageNamed:@"placeholder.png"]];
+    //
+    cell.authorName.text=cellInfor[@"author"];
+    cell.theme.text=cellInfor[@"briefIntro"];
+
     return cell;
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
 }
-
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    SHTHomeDetailsVc *vc=[[SHTHomeDetailsVc alloc]init];
+    UIImage *placeImage=[UIImage imageNamed:@"placeholder.png"];
+    NSDictionary *cellInfor=[_collectionViewData objectAtIndex:indexPath.row];
+    NSLog(@"cellinfor:%@",cellInfor);
+    vc.contentMake = ^(UIImageView * _Nonnull topimage, UILabel * _Nonnull pagetitle, UIImageView * _Nonnull portrait, UILabel * _Nonnull name, UIImageView * _Nonnull L_T, UIImageView * _Nonnull L_D, UIImageView * _Nonnull R_T, UIImageView * _Nonnull R_D, UILabel * _Nonnull breifContent)
+    {
+        [topimage yy_setImageWithURL:cellInfor[@"LargePic"] placeholder:placeImage];
+    
+        pagetitle.text=cellInfor[@"briefIntro"];
+        [portrait yy_setImageWithURL:cellInfor[@"portrait"] placeholder:placeImage];
+        name.text=cellInfor[@"author"];
+        NSLog(@"%@",cellInfor[@"img1"]);
+        [L_T yy_setImageWithURL:cellInfor[@"img1"] placeholder:placeImage];
+        [L_D yy_setImageWithURL:cellInfor[@"img2"] placeholder:placeImage];
+        [R_T yy_setImageWithURL:cellInfor[@"img3"] placeholder:placeImage];
+        [R_D yy_setImageWithURL:cellInfor[@"img4"] placeholder:placeImage];
+        breifContent.text=cellInfor[@"introduce"];
+    };
+    [self.navigationController pushViewController:vc animated:YES];
+}
 @end

@@ -38,7 +38,7 @@
 				<key>portrait</key>
 				<string>https://www.tuozhe8.com/uc_server/avatar.php?uid=2489339&amp;size=middle</string>
 				<key>introduce</key>
-				<string>孤独是常态。这里能给你想要的安全感。</string>
+				<string>Loneliness is the norm. It gives you the security you want</string>
 				<key>img4</key>
 				<string>https://x4.tuozhe8.com/attachment/forum/202004/15/163650ndudlguwaahqd1lr.jpg</string>
 				<key>img3</key>
@@ -375,7 +375,99 @@
 		</array>
 	</dict>
 	<key>Home</key>
-	<dict/>
+	<dict>
+		<key>collectionViewData</key>
+		<array>
+			<dict>
+				<key>LargePic</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/27/095033i3xy54v5z8cp5vxv.jpg.thumb.jpg</string>
+				<key>img1</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/27/095035m5l9q5g99dq5dzoo.jpg.thumb.jpg</string>
+				<key>img2</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/27/095037cwhrqurzu9wqiu98.jpg.thumb.jpg</string>
+				<key>img3</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/27/095038mrmsm3avsgomw3vq.jpg.thumb.jpg</string>
+				<key>img4</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/27/095039byfwj13fjjgyxy1f.jpg.thumb.jpg</string>
+				<key>intro</key>
+				<string>The design of the master bedroom and the conversion of the wood floor to the warm texture of the human body. The looming glass compartment extends the bedroom space and introduces the natural light at the same time, making the dressing space no longer cramped and more open.</string>
+				<key>author</key>
+				<string>weiMing</string>
+				<key>portrait</key>
+				<string>https://himg.baidu.com/sys/portrait/item/tb.1.a25352cf.GQU8VOdDpebTdBOvxNjCUQ</string>
+				<key>briefIntro</key>
+				<string>Premium grey</string>
+				<key>gapTime</key>
+				<string>2 hours ago</string>
+			</dict>
+			<dict>
+				<key>LargePic</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/27/092657hriaiikxsar5kkgk.jpg.thumb.jpg</string>
+				<key>img1</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/27/092653v9dyb999i0savzxe.jpg.thumb.jpg</string>
+				<key>img2</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/27/092654sga4bacc6hhhgmgg.jpg.thumb.jpg</string>
+				<key>img3</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/27/092656cteju9jdkk59mje9.jpg.thumb.jpg</string>
+				<key>img4</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/27/092658gjomrpoowd1ir8aw.jpg.thumb.jpg</string>
+				<key>author</key>
+				<string>weiMing</string>
+				<key>intro</key>
+				<string>There are souls, there are emotional tendencies, inspiration happens at any time. Designers hope to depict a harmonious life through design. Simplicity, nimbleness and eternity are the most outstanding qualities of the design of this case. Simplicity and simplicity are the exterior, and the interior pursues the infiltration of art, which is natural, meaningful, pure and inclusive.</string>
+				<key>briefIntro</key>
+				<string>Beauty is hidden harmony</string>
+				<key>portrait</key>
+				<string>https://himg.baidu.com/sys/portrait/item/tb.1.50dec536.LHZKb9Txx8bmf8lwav8wzw</string>
+				<key>gapTime</key>
+				<string>1 days ago</string>
+			</dict>
+			<dict>
+				<key>LargePic</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/26/170849uhlm035hyokmlls3.jpg.thumb.jpg</string>
+				<key>author</key>
+				<string>YiSheDesign</string>
+				<key>img1</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/26/170851bcvz2lk9jrvkvklv.jpg.thumb.jpg</string>
+				<key>img2</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/26/170854rzu201k9p5ku4u2l.jpg.thumb.jpg</string>
+				<key>img3</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/26/170858f55sh500rh7tgtnm.jpg.thumb.jpg</string>
+				<key>img4</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/26/170908znbhlbgnkzpmf6gk.jpg.thumb.jpg</string>
+				<key>briefIntro</key>
+				<string>field Of Dream</string>
+				<key>intro</key>
+				<string>The simple and clean white small bricks of the guest&apos;s bathroom design break the dull feeling, and the tiles on the ground are also the finishing touch. Gold material added, increased the quality sense. Fresh two green leaves, let people feel comfortable.</string>
+				<key>portrait</key>
+				<string>https://himg.baidu.com/sys/portrait/item/tb.1.f32a662b.ahiwh88QOhoXjsNYsBRioA</string>
+				<key>gapTime</key>
+				<string>3 days ago</string>
+			</dict>
+			<dict>
+				<key>portrait</key>
+				<string>https://himg.baidu.com/sys/portrait/item/tb.1.88eed63c.ZFoj8RTg5kPAM9bvw0inGQ</string>
+				<key>img1</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/26/133904f2hkf9oj2yuzhh9z.jpg.thumb.jpg</string>
+				<key>img2</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/26/133905w7bpsczzsgkzr6zg.jpg.thumb.jpg</string>
+				<key>img3</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/26/133906eack337zr888zo8a.jpg.thumb.jpg</string>
+				<key>img4</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/26/133907r6a7p5qay93g6799.jpg.thumb.jpg</string>
+				<key>intro</key>
+				<string>The design of the bedroom continues the overall style of the space, with art light luxury as the keynote, and warm gray with brown coffee color to create a quiet and elegant leisure space experience. Furniture, bedding and accessories are all telling their love for life. They slowly lie down to a comfortable dreamland and feel the power of soft and relaxed inside.</string>
+				<key>LargePic</key>
+				<string>https://x4.tuozhe8.com/attachment/forum/202004/26/133906lz8q9h8i7qqqp0w0.jpg.thumb.jpg</string>
+				<key>author</key>
+				<string>AnXiangDesign</string>
+				<key>briefIntro</key>
+				<string>Enchanting elegance</string>
+				<key>gapTime</key>
+				<string>1 day ago</string>
+			</dict>
+		</array>
+	</dict>
 	<key>MIne</key>
 	<dict/>
 </dict>
